@@ -50,7 +50,7 @@
         </div>
         <div class="mt-2">
           <button type="submit" class="btn btn-primary me-2">Simpan</button>
-          <a href="../" class="btn btn-outline-secondary"> Batal </a>
+          <a href="<?php echo site_url('admin/produk/kategori/'.$u->id_kategori) ?>" class="btn btn-outline-secondary"> Batal </a>
         </div>
       </div>
     </div>

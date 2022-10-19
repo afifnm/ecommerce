@@ -38,7 +38,7 @@
 </div>
 <div class="row">
   <?php foreach ($this->CRUD_model->foto_produk($u->kode_produk) as $foto) { ?>
-    <div class="col-md-4" style="margin-bottom: 20px;">
+    <div class="col-md-3" style="margin-bottom: 20px;">
       <div class="bs-toast toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
           <a href="<?php echo site_url('admin/produk/delete_foto/'.$u->id_kategori.'/'.$foto['namafile'].'/'.$u->kode_produk);?>" class="btn-close" onClick="return confirm('Apakah anda yakin menghapus foto ini?')"></a>
