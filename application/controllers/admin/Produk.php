@@ -2,8 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Produk extends MY_Controller
-{
+class Produk extends MY_Controller{
     public function __construct(){
         parent::__construct();
         $this->load->helper('tgl_indo');
@@ -33,6 +32,7 @@ class Produk extends MY_Controller
         $data2 = array('data2' => $data2, 'kategori' => $kategori);
         $this->template->load('layout/template', 'admin/produk_index', array_merge($data,$data2));
     }
+
     public function kategori($id){
         $namakategori = $this->CRUD_model->get_kategori($id);
         $site = $this->Konfigurasi_model->listing();
