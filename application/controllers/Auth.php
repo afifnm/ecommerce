@@ -108,7 +108,7 @@ class Auth extends MY_Controller
     } 
     public function logout(){ 
         $this->session->sess_destroy();
-        redirect('auth/login');
+        redirect('home');
     }
     function profile(){
         $data['user'] = $this->Auth_model->tampil_data()->result();
