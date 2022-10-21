@@ -4,581 +4,84 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link rel="icon" href="img/favicon.png" type="image/png" />
-    <title>Eiser ecommerce</title>
+    <title>Bismart E-Commerce</title>
     <?php require_once('_css.php'); ?>
   </head>
   <body>
-    <header class="header_area">
-      <div class="main_menu">
-        <div class="container">
-          <nav class="navbar navbar-expand-lg navbar-light w-100">
-            <a class="navbar-brand logo_h" href="index.html">
-              <img src="img/logo.png" alt="" />
-            </a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div
-              class="collapse navbar-collapse offset w-100"
-              id="navbarSupportedContent"
-            >
-              <div class="row w-100 mr-0">
-                <div class="col-lg-7 pr-0">
-                  <ul class="nav navbar-nav center_nav pull-right">
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item active submenu dropdown">
-                      <a
-                        href="#"
-                        class="nav-link dropdown-toggle"
-                        data-toggle="dropdown"
-                        role="button"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        >Shop</a
-                      >
-                      <ul class="dropdown-menu">
-                        <li class="nav-item">
-                          <a class="nav-link" href="category.html"
-                            >Shop Category</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="single-product.html"
-                            >Product Details</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="checkout.html"
-                            >Product Checkout</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="cart.html">Shopping Cart</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="nav-item submenu dropdown">
-                      <a
-                        href="#"
-                        class="nav-link dropdown-toggle"
-                        data-toggle="dropdown"
-                        role="button"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        >Blog</a
-                      >
-                      <ul class="dropdown-menu">
-                        <li class="nav-item">
-                          <a class="nav-link" href="blog.html">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="single-blog.html"
-                            >Blog Details</a
-                          >
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="nav-item submenu dropdown">
-                      <a
-                        href="#"
-                        class="nav-link dropdown-toggle"
-                        data-toggle="dropdown"
-                        role="button"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        >Pages</a
-                      >
-                      <ul class="dropdown-menu">
-                        <li class="nav-item">
-                          <a class="nav-link" href="tracking.html">Tracking</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="elements.html">Elements</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="col-lg-5 pr-0">
-                  <ul class="nav navbar-nav navbar-right right_nav pull-right">
-                    <li class="nav-item">
-                      <a href="#" class="icons">
-                        <i class="ti-search" aria-hidden="true"></i>
-                      </a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a href="#" class="icons">
-                        <i class="ti-shopping-cart"></i>
-                      </a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a href="#" class="icons">
-                        <i class="ti-user" aria-hidden="true"></i>
-                      </a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a href="#" class="icons">
-                        <i class="ti-heart" aria-hidden="true"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </header>
-    <!--================Header Menu Area =================-->
-
-    <!--================Home Banner Area =================-->
+    <?php require_once('_navigasi.php'); ?>
     <section class="banner_area">
       <div class="banner_inner d-flex align-items-center">
         <div class="container">
           <div class="banner_content d-md-flex justify-content-between align-items-center">
             <div class="mb-3 mb-md-0">
-              <h2>Shop Category</h2>
-              <p>Very us move be blessed multiply night</p>
+              <h2>Bismart E-Commerce</h2>
+              <p>Murah, Mudah, Cepat</p>
             </div>
             <div class="page_link">
-              <a href="index.html">Home</a>
-              <a href="category.html">Shop</a>
-              <a href="category.html">Women Fashion</a>
+              <a href="<?php echo site_url('home') ?>">Beranda</a>
+              <a href="#">Produk</a>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!--================End Home Banner Area =================-->
-
-    <!--================Category Product Area =================-->
-    <section class="cat_product_area section_gap">
+    <section class="cat_product_area" style="padding-top: 20px;">
       <div class="container">
         <div class="row flex-row-reverse">
           <div class="col-lg-9">
             <div class="product_top_bar">
               <div class="left_dorp">
-                <select class="sorting">
-                  <option value="1">Default sorting</option>
-                  <option value="2">Default sorting 01</option>
-                  <option value="4">Default sorting 02</option>
-                </select>
-                <select class="show">
-                  <option value="1">Show 12</option>
-                  <option value="2">Show 14</option>
-                  <option value="4">Show 16</option>
-                </select>
+                Pencarian
               </div>
             </div>
-            
             <div class="latest_product_inner">
               <div class="row">
+                <?php foreach ($produks as $produk) {?>
+                <?php if ($this->CRUD_model->foto_produk_1($produk['kode_produk'])!=NULL) {?>
                 <div class="col-lg-4 col-md-6">
                   <div class="single-product">
                     <div class="product-img">
-                      <img
-                        class="card-img"
-                        src="img/product/inspired-product/i1.jpg"
-                        alt=""
-                      />
+                      <?php foreach ($this->CRUD_model->foto_produk_1($produk['kode_produk']) as $foto) { ?>
+                      <img class="card-img" src="<?php echo site_url('assets/upload/images/produk/'.$foto['namafile']);?>">
+                      <?php } ?>
                       <div class="p_icon">
-                        <a href="#">
-                          <i class="ti-eye"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-heart"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-shopping-cart"></i>
-                        </a>
+                        <a href="#"><i class="ti-eye"></i></a>
+                        <a href="#"><i class="ti-heart"></i></a>
+                        <a href="#"><i class="ti-shopping-cart"></i></a>
                       </div>
                     </div>
                     <div class="product-btm">
                       <a href="#" class="d-block">
-                        <h4>Latest men’s sneaker</h4>
+                        <h4><?php echo $produk['nama']; ?></h4>
                       </a>
                       <div class="mt-3">
-                        <span class="mr-4">$25.00</span>
-                        <del>$35.00</del>
+                        <span class="mr-4">Rp. <?php echo number_format($produk['harga'],0,",","."); ?></span>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6">
-                  <div class="single-product">
-                    <div class="product-img">
-                      <img
-                        class="card-img"
-                        src="img/product/inspired-product/i2.jpg"
-                        alt=""
-                      />
-                      <div class="p_icon">
-                        <a href="#">
-                          <i class="ti-eye"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-heart"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-shopping-cart"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="product-btm">
-                      <a href="#" class="d-block">
-                        <h4>Latest men’s sneaker</h4>
-                      </a>
-                      <div class="mt-3">
-                        <span class="mr-4">$25.00</span>
-                        <del>$35.00</del>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                  <div class="single-product">
-                    <div class="product-img">
-                      <img
-                        class="card-img"
-                        src="img/product/inspired-product/i3.jpg"
-                        alt=""
-                      />
-                      <div class="p_icon">
-                        <a href="#">
-                          <i class="ti-eye"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-heart"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-shopping-cart"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="product-btm">
-                      <a href="#" class="d-block">
-                        <h4>Latest men’s sneaker</h4>
-                      </a>
-                      <div class="mt-3">
-                        <span class="mr-4">$25.00</span>
-                        <del>$35.00</del>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                  <div class="single-product">
-                    <div class="product-img">
-                      <img
-                        class="card-img"
-                        src="img/product/inspired-product/i4.jpg"
-                        alt=""
-                      />
-                      <div class="p_icon">
-                        <a href="#">
-                          <i class="ti-eye"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-heart"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-shopping-cart"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="product-btm">
-                      <a href="#" class="d-block">
-                        <h4>Latest men’s sneaker</h4>
-                      </a>
-                      <div class="mt-3">
-                        <span class="mr-4">$25.00</span>
-                        <del>$35.00</del>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                  <div class="single-product">
-                    <div class="product-img">
-                      <img
-                        class="card-img"
-                        src="img/product/inspired-product/i5.jpg"
-                        alt=""
-                      />
-                      <div class="p_icon">
-                        <a href="#">
-                          <i class="ti-eye"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-heart"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-shopping-cart"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="product-btm">
-                      <a href="#" class="d-block">
-                        <h4>Latest men’s sneaker</h4>
-                      </a>
-                      <div class="mt-3">
-                        <span class="mr-4">$25.00</span>
-                        <del>$35.00</del>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                  <div class="single-product">
-                    <div class="product-img">
-                      <img
-                        class="card-img"
-                        src="img/product/inspired-product/i6.jpg"
-                        alt=""
-                      />
-                      <div class="p_icon">
-                        <a href="#">
-                          <i class="ti-eye"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-heart"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-shopping-cart"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="product-btm">
-                      <a href="#" class="d-block">
-                        <h4>Latest men’s sneaker</h4>
-                      </a>
-                      <div class="mt-3">
-                        <span class="mr-4">$25.00</span>
-                        <del>$35.00</del>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                  <div class="single-product">
-                    <div class="product-img">
-                      <img
-                        class="card-img"
-                        src="img/product/inspired-product/i7.jpg"
-                        alt=""
-                      />
-                      <div class="p_icon">
-                        <a href="#">
-                          <i class="ti-eye"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-heart"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-shopping-cart"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="product-btm">
-                      <a href="#" class="d-block">
-                        <h4>Latest men’s sneaker</h4>
-                      </a>
-                      <div class="mt-3">
-                        <span class="mr-4">$25.00</span>
-                        <del>$35.00</del>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                  <div class="single-product">
-                    <div class="product-img">
-                      <img
-                        class="card-img"
-                        src="img/product/inspired-product/i8.jpg"
-                        alt=""
-                      />
-                      <div class="p_icon">
-                        <a href="#">
-                          <i class="ti-eye"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-heart"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-shopping-cart"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="product-btm">
-                      <a href="#" class="d-block">
-                        <h4>Latest men’s sneaker</h4>
-                      </a>
-                      <div class="mt-3">
-                        <span class="mr-4">$25.00</span>
-                        <del>$35.00</del>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                  <div class="single-product">
-                    <div class="product-img">
-                      <img
-                        class="card-img"
-                        src="img/product/inspired-product/i2.jpg"
-                        alt=""
-                      />
-                      <div class="p_icon">
-                        <a href="#">
-                          <i class="ti-eye"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-heart"></i>
-                        </a>
-                        <a href="#">
-                          <i class="ti-shopping-cart"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="product-btm">
-                      <a href="#" class="d-block">
-                        <h4>Latest men’s sneaker</h4>
-                      </a>
-                      <div class="mt-3">
-                        <span class="mr-4">$25.00</span>
-                        <del>$35.00</del>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <?php } ?>
+                <?php } ?>
               </div>
             </div>
           </div>
-
           <div class="col-lg-3">
             <div class="left_sidebar_area">
               <aside class="left_widgets p_filter_widgets">
                 <div class="l_w_title">
-                  <h3>Browse Categories</h3>
+                  <h3>Daftar Produk</h3>
                 </div>
                 <div class="widgets_inner">
                   <ul class="list">
                     <li>
-                      <a href="#">Frozen Fish</a>
+                    <a href="<?php echo site_url('home/produk/');?>">Semua</a>
                     </li>
+                <?php foreach ($kategori_produk as $key) { ?>
                     <li>
-                      <a href="#">Dried Fish</a>
-                    </li>
-                    <li>
-                      <a href="#">Fresh Fish</a>
-                    </li>
-                    <li>
-                      <a href="#">Meat Alternatives</a>
-                    </li>
-                    <li>
-                      <a href="#">Fresh Fish</a>
-                    </li>
-                    <li>
-                      <a href="#">Meat Alternatives</a>
-                    </li>
-                    <li>
-                      <a href="#">Meat</a>
-                    </li>
+                    <a href="<?php echo site_url('home/produk/kategori/'.$key['id_kategori']);?>"><?php echo $key['kategori']; ?></a>
+                  </li>
+                <?php }  ?>
                   </ul>
-                </div>
-              </aside>
-
-              <aside class="left_widgets p_filter_widgets">
-                <div class="l_w_title">
-                  <h3>Product Brand</h3>
-                </div>
-                <div class="widgets_inner">
-                  <ul class="list">
-                    <li>
-                      <a href="#">Apple</a>
-                    </li>
-                    <li>
-                      <a href="#">Asus</a>
-                    </li>
-                    <li class="active">
-                      <a href="#">Gionee</a>
-                    </li>
-                    <li>
-                      <a href="#">Micromax</a>
-                    </li>
-                    <li>
-                      <a href="#">Samsung</a>
-                    </li>
-                  </ul>
-                </div>
-              </aside>
-
-              <aside class="left_widgets p_filter_widgets">
-                <div class="l_w_title">
-                  <h3>Color Filter</h3>
-                </div>
-                <div class="widgets_inner">
-                  <ul class="list">
-                    <li>
-                      <a href="#">Black</a>
-                    </li>
-                    <li>
-                      <a href="#">Black Leather</a>
-                    </li>
-                    <li class="active">
-                      <a href="#">Black with red</a>
-                    </li>
-                    <li>
-                      <a href="#">Gold</a>
-                    </li>
-                    <li>
-                      <a href="#">Spacegrey</a>
-                    </li>
-                  </ul>
-                </div>
-              </aside>
-
-              <aside class="left_widgets p_filter_widgets">
-                <div class="l_w_title">
-                  <h3>Price Filter</h3>
-                </div>
-                <div class="widgets_inner">
-                  <div class="range_item">
-                    <div id="slider-range"></div>
-                    <div class="">
-                      <label for="amount">Price : </label>
-                      <input type="text" id="amount" readonly />
-                    </div>
-                  </div>
                 </div>
               </aside>
             </div>
@@ -586,72 +89,7 @@
         </div>
       </div>
     </section>
-    <!--================End Category Product Area =================-->
-
-    <!--================ start footer Area  =================-->
-    <footer class="footer-area section_gap">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-2 col-md-6 single-footer-widget">
-            <h4>Top Products</h4>
-            <ul>
-              <li><a href="#">Managed Website</a></li>
-              <li><a href="#">Manage Reputation</a></li>
-              <li><a href="#">Power Tools</a></li>
-              <li><a href="#">Marketing Service</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-2 col-md-6 single-footer-widget">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="#">Jobs</a></li>
-              <li><a href="#">Brand Assets</a></li>
-              <li><a href="#">Investor Relations</a></li>
-              <li><a href="#">Terms of Service</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-2 col-md-6 single-footer-widget">
-            <h4>Features</h4>
-            <ul>
-              <li><a href="#">Jobs</a></li>
-              <li><a href="#">Brand Assets</a></li>
-              <li><a href="#">Investor Relations</a></li>
-              <li><a href="#">Terms of Service</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-2 col-md-6 single-footer-widget">
-            <h4>Resources</h4>
-            <ul>
-              <li><a href="#">Guides</a></li>
-              <li><a href="#">Research</a></li>
-              <li><a href="#">Experts</a></li>
-              <li><a href="#">Agencies</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-4 col-md-6 single-footer-widget">
-            <h4>Newsletter</h4>
-            <p>You can trust us. we only send promo offers,</p>
-            <div class="form-wrap" id="mc_embed_signup">
-              <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                method="get" class="form-inline">
-                <input class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''"
-                  onblur="this.placeholder = 'Your Email Address '" required="" type="email">
-                <button class="click-btn btn btn-default">Subscribe</button>
-                <div style="position: absolute; left: -5000px;">
-                  <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                </div>
-  
-                <div class="info"></div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom row align-items-center">
-          <p class="footer-text m-0 col-lg-8 col-md-12">
-          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart-o" aria-hidden="true"></i></p>
-        </div>
-      </div>
-    </footer>
+    <?php require_once('_footer.php'); ?>
     <?php require_once('_js.php'); ?>
   </body>
 </html>

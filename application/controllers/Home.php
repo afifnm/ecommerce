@@ -16,7 +16,12 @@ class Home extends MY_Controller
             'title'                 => 'Beranda | '.$site['nama_website'],
             'site'                  => $site,
         );
-        $this->load->view('frontend/beranda');
+        $this->db->select('a.*,b.kategori')->from('produk a');
+        $this->db->join('kategori b', 'b.id_kategori = a.id_kategori','left');
+        $this->db->order_by('tanggal','DESC');
+        $produks = $this->db->get()->result_array();
+        $data2 = array('produks' => $produks);
+        $this->load->view('frontend/beranda',array_merge($data,$data2));
     }
 }
  
