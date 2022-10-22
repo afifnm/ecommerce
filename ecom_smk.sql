@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2022 at 10:41 AM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 5.6.19
+-- Generation Time: Oct 22, 2022 at 07:07 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -41,7 +42,23 @@ INSERT INTO `foto` (`id_foto`, `kode_produk`, `namafile`) VALUES
 (19, '202210180359545', '20221018090010.jpg'),
 (20, '202210180441455', '20221018094507.jpg'),
 (22, '202210190904232', '20221019140844.jpg'),
-(23, '202210190904232', '20221019140850.jpg');
+(23, '202210190904232', '20221019140850.jpg'),
+(27, '202210210353132', '20221021085337.jpg'),
+(28, '202210210353132', '20221021085345.jpg'),
+(29, '202210210353132', '20221021085350.jpg'),
+(30, '202210210355532', '20221021085621.jpg'),
+(31, '202210210354392', '20221021085629.jpg'),
+(32, '202210210356432', '20221021085708.jpg'),
+(33, '202210210356182', '20221021085731.jpg'),
+(35, '202210210359112', '20221021085933.jpg'),
+(36, '202210210358292', '20221021085935.jpg'),
+(37, '202210210359442', '20221021085957.jpg'),
+(38, '202210210359112', '20221021090105.jpg'),
+(40, '202210210400432', '20221021090134.jpg'),
+(41, '202210210401452', '20221021090211.jpg'),
+(42, '202210210401452', '20221021090219.jpg'),
+(43, '202210210402302', '20221021090317.jpg'),
+(44, '202210210402092', '20221021090648.jpg');
 
 -- --------------------------------------------------------
 
@@ -110,7 +127,20 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `kode_produk`, `nama`, `deskripsi`, `id_kategori`, `active`, `tanggal`, `harga`, `stok`, `username`) VALUES
-(7, '202210190904232', 'Basreng', '<p><span class="ILfuVd" lang="id"><span class="hgKElc"><strong>Basreng</strong> (berasal dari akronim bahasa Sunda: baso digor&eacute;ng, baso digoreng) adalah camilan khas Sunda yang terbuat dari olahan bakso ikan yang diiris tipis kemudian digoreng. <strong>Basreng</strong> dapat juga disajikan dengan taburan bumbu pedas.</span></span></p>', '6', 1, '2022-10-19 09:04:22', '10000', 100, 'root');
+(10, '202210210353132', 'Kain Batik Lurik', '<p>Bla&nbsp;</p>\r\n<p>Bla sdfsdfdsf</p>\r\n<p>Bla sdfsdfsdf</p>\r\n<p>Bla&nbsp;</p>\r\n<p>Bla&nbsp;</p>\r\n<p>Bla&nbsp;</p>\r\n<p>Bla fdsfdsf</p>', '10', 0, '2022-10-21 03:53:13', '20000', 10, 'root'),
+(12, '202210210355532', 'Gado-Gado', '<p>Enak banget lochhh</p>', '6', 0, '2022-10-21 03:55:53', '15000', 15, 'root'),
+(13, '202210210356182', 'Es Boba', '<p><em><strong><span style=\"font-size: 14pt;\">Es yang sempat viral di Indonesia karena menyegarkan di kala kamu haus, wehehehehe.</span></strong></em></p>', '6', 0, '2022-10-21 03:56:18', '10000', 15, 'root'),
+(14, '202210210356432', 'BAKSO ACI(BACI)', '', '6', 0, '2022-10-21 03:56:43', '12000', 100, 'root'),
+(15, '202210210358292', 'bakso ', '<p>Bakso di buat dari bahan pilihan seperti dia yang memilih milih tanpa memandang ketulusan asalkan banyak cuan langsung di gaskan</p>', '6', 0, '2022-10-21 03:58:29', '3000000', 1, 'root'),
+(16, '202210210359112', 'klepon ijo', '<p>klepon ijo</p>\r\n<p>klepon ijo</p>\r\n<p>klepon ijo</p>\r\n<p>klepon ijo</p>\r\n<p>klepon ijo</p>\r\n<p>klepon ijo</p>', '6', 0, '2022-10-21 03:59:11', '10000', 50, 'root'),
+(17, '202210210359442', 'ES TEH DINGIN', '', '6', 0, '2022-10-21 03:59:44', '20000', 999, 'root'),
+(18, '202210210400432', 'Es Doger', '', '6', 0, '2022-10-21 04:00:43', '10', 11, 'root'),
+(19, '202210210401452', 'udang keju', '<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>&nbsp;</p>', '6', 0, '2022-10-21 04:01:45', '8000', 1, 'root'),
+(20, '202210210402092', 'Baju Cwek ', '', '10', 0, '2022-10-21 04:02:09', '379999', 28, 'root'),
+(21, '202210210402152', 'Es Teh Free Sugar', '<p>Free Sugar Aidck-Adick</p>\r\n<p>&nbsp;</p>', '6', 0, '2022-10-21 04:02:15', '3000', 1, 'root'),
+(22, '202210210402302', 'Kaos Polos', '', '10', 0, '2022-10-21 04:02:30', '45000', 30, 'root'),
+(23, '202210210410022', 'Fried Rice with All Toping', '<p>Fried Rice with All Toping</p>\r\n<p>SetMenu:</p>\r\n<p style=\"line-height: 1;\">Rp 25.000,00 per porsi</p>\r\n<p style=\"line-height: 1;\">50 porsi per Hari</p>', '6', 0, '2022-10-21 04:10:02', '25000', 50, 'root'),
+(24, '202210210413482', 'sepatu', '', '10', 0, '2022-10-21 04:13:48', '999', 1, 'root');
 
 -- --------------------------------------------------------
 
@@ -126,14 +156,14 @@ CREATE TABLE `user` (
   `nama` varchar(70) NOT NULL,
   `tempat_lahir` varchar(40) DEFAULT NULL,
   `tanggal_lahir` date DEFAULT NULL,
-  `alamat` text,
+  `alamat` text DEFAULT NULL,
   `kelas` varchar(10) NOT NULL,
   `tahun_ajaran` varchar(10) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `no_hp` varchar(50) DEFAULT NULL,
   `foto` varchar(100) NOT NULL,
   `active` int(11) NOT NULL,
-  `last_login` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `last_login` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -186,27 +216,33 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `foto`
 --
 ALTER TABLE `foto`
-  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `konfigurasi`
 --
 ALTER TABLE `konfigurasi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
