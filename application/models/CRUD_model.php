@@ -41,4 +41,25 @@ class CRUD_model extends CI_Model{
         $this->db->limit(1);
         return $this->db->get()->result_array();
     }
+    public function ambil_produk($num, $offset){
+        $this->db->order_by('tanggal', 'DESC');
+        $this->db->where('active',1);
+        $data = $this->db->get('produk', $num, $offset);
+        return $data->result();
+     }
+
+    public function ambil_pencarian($num, $offset,$isi){
+        $this->db->order_by('tanggal', 'DESC');
+        $this->db->like('nama', $isi);
+        $data = $this->db->get('produk', $num, $offset);
+        return $data->result();
+     }
+
+    public function ambil_produk_kategori($id_kategori,$num, $offset){
+        $this->db->where('id_kategori',$id_kategori);
+        $this->db->where('active',1);
+        $this->db->order_by('tanggal', 'DESC');
+        $data = $this->db->get('produk', $num, $offset);
+        return $data->result();
+     }
 }
