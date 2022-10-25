@@ -7,11 +7,11 @@
         <div class="widgets_inner">
             <ul class="list">
                 <li class="<?php if(($this->uri->segment('3')!=$key['id_kategori'] AND ($this->uri->segment('2')=='index'))){ echo "active"; } ?>">
-                <a href="<?php echo site_url('home/');?>">Semua</a>
+                    <a href="<?php echo site_url('home/');?>">Semua</a>
                 </li>
                 <?php foreach ($kategori_produk as $key) { ?>
                 <li class="<?php if(($this->uri->segment('3')==$key['id_kategori'] AND ($this->uri->segment('2')=='kategori'))){ echo "active"; } ?>">
-                <a href="<?php echo site_url('home/kategori/'.$key['id_kategori'].'/0');?>"><?php echo $key['kategori']; ?></a>
+                    <a href="<?php echo site_url('home/kategori/'.$key['id_kategori'].'/0');?>"><?php echo $key['kategori']; ?></a>
                 </li>
                 <?php }  ?>
             </ul>
