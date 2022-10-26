@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link rel="icon" href="img/favicon.png" type="image/png" />
-    <title>Bismart E-Commerce</title>
+    <title><?php echo $title; ?></title>
     <?php require_once('_css.php'); ?>
   </head>
   <body>
@@ -14,29 +14,31 @@
       <div class="container">
         <div class="row flex-row-reverse">
           <div class="col-lg-9">
-            <div class="product_top_bar">
-              <div class="left_dorp">
-                Pencarian
-              </div>
+            <div class="product_top_bar" style="padding :0px;">
+              <div class="input-group-icon mt-10">
+								<div class="icon">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</div>
+								<input type="text" name="address" placeholder="Pencarian..." class="single-input" id="cari">
+							</div>
             </div>
             <div class="latest_product_inner">
               <div class="row">
                 <?php foreach ($query as $produk) {?>
                   <?php if ($this->CRUD_model->foto_produk_1($produk->kode_produk)!=NULL) {?>
-                  <div class="col-lg-4 col-md-6">
+                  <div class="col-lg-4 col-md-6 col-xs-6">
                     <div class="single-product">
                       <div class="product-img">
                         <?php foreach ($this->CRUD_model->foto_produk_1($produk->kode_produk) as $foto) { ?>
                         <img class="card-img" src="<?php echo site_url('assets/upload/images/produk/'.$foto['namafile']);?>">
                         <?php } ?>
                         <div class="p_icon">
-                          <a href="#"><i class="ti-eye"></i></a>
-                          <a href="#"><i class="ti-heart"></i></a>
-                          <a href="#"><i class="ti-shopping-cart"></i></a>
+                          <a href="<?php echo site_url('home/product/'.$produk->kode_produk) ?>">
+                          <i class="ti-shopping-cart"></i></a>
                         </div>
                       </div>
                       <div class="product-btm">
-                        <a href="#" class="d-block">
+                        <a href="<?php echo site_url('home/product/'.$produk->kode_produk) ?>" class="d-block">
                           <h4><?php echo $produk->nama; ?></h4>
                         </a>
                         <div class="mt-3">
@@ -46,7 +48,10 @@
                     </div>
                   </div>
                   <?php } ?>
-                <?php } ?>          
+                <?php } ?>    
+                <?php if ($query==NULL) {
+                  echo '<div class="col-md-12">Tidak ada barang.</div>';
+                } ?>     
                 <div class="col-md-12">
                   <nav class="blog-pagination justify-content-left d-flex" style="margin-top:0px";>
                     <ul class="pagination" style="font-size: 20px ;">
@@ -63,5 +68,13 @@
     </section>
     <?php require_once('_footer.php'); ?>
     <?php require_once('_js.php'); ?>
+    <script>
+      var cari = document.getElementById('cari');
+      cari.addEventListener("keydown", function(event) {
+        if (event.keyCode==13) {
+          window.location.href = '<?php echo site_url('home/pencarian/') ?>'+cari.value;
+        }
+      })
+    </script>
   </body>
 </html>

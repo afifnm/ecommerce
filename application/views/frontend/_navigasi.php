@@ -36,7 +36,7 @@ $kategori_produk = $this->db->get()->result_array();
                     <ul class="dropdown-menu">
 					<?php foreach ($kategori_produk as $key) { ?>
 						<li class="nav-item">
-                        <a class="nav-link" href="<?php echo site_url('home/produk/kategori/'.$key['id_kategori']);?>"><?php echo $key['kategori']; ?></a>
+                        <a class="nav-link" href="<?php echo site_url('home/kategori/'.$key['id_kategori'].'/0');?>"><?php echo $key['kategori']; ?></a>
                     	</li>
 					<?php }  ?>
                     </ul>
@@ -49,7 +49,6 @@ $kategori_produk = $this->db->get()->result_array();
                 </li>
                 </ul>
             </div>
-
             <div class="col-lg-5 pr-0">
                 <ul class="nav navbar-nav navbar-right right_nav pull-right">
                 <li class="nav-item">
@@ -57,16 +56,9 @@ $kategori_produk = $this->db->get()->result_array();
                     <i class="ti-shopping-cart"></i> Keranjang
                     </a>
                 </li>
-
                 <li class="nav-item">
                     <a href="#" class="icons">
                     <i class="ti-user" aria-hidden="true"></i> Login
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#" class="icons">
-                    <i class="ti-heart" aria-hidden="true"></i> Wishlist
                     </a>
                 </li>
                 </ul>

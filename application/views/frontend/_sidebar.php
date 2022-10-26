@@ -6,7 +6,7 @@
         </div>
         <div class="widgets_inner">
             <ul class="list">
-                <li class="<?php if(($this->uri->segment('3')!=$key['id_kategori'] AND ($this->uri->segment('2')=='index'))){ echo "active"; } ?>">
+                <li class="<?php if($this->uri->segment('2')==NULL){ echo "active"; } ?>">
                     <a href="<?php echo site_url('home/');?>">Semua</a>
                 </li>
                 <?php foreach ($kategori_produk as $key) { ?>
