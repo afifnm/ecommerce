@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2022 at 10:20 AM
+-- Generation Time: Oct 27, 2022 at 07:40 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -126,16 +126,10 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `kode_produk`, `nama`, `deskripsi`, `id_kategori`, `active`, `tanggal`, `harga`, `stok`, `username`) VALUES
-(10, '202210210353132', 'Kain Batik Lurik', '<p>Bla&nbsp;</p>\r\n<p>Bla sdfsdfdsf</p>\r\n<p>Bla sdfsdfsdf</p>\r\n<p>Bla&nbsp;</p>\r\n<p>Bla&nbsp;</p>\r\n<p>Bla&nbsp;</p>\r\n<p>Bla fdsfdsf</p>', '10', 1, '2022-10-21 03:53:13', '20000', 10, 'root'),
-(12, '202210210355532', 'Gado-Gado', '<p>Enak banget lochhh</p>', '6', 1, '2022-10-21 03:55:53', '15000', 15, 'root'),
 (13, '202210210356182', 'Es Boba', '<p><em><strong><span style=\"font-size: 14pt;\">Es yang sempat viral di Indonesia karena menyegarkan di kala kamu haus, wehehehehe.</span></strong></em></p>', '6', 1, '2022-10-21 03:56:18', '10000', 15, 'root'),
 (14, '202210210356432', 'BAKSO ACI(BACI)', '', '6', 1, '2022-10-21 03:56:43', '12000', 100, 'root'),
-(15, '202210210358292', 'bakso ', '<p>Bakso di buat dari bahan pilihan seperti dia yang memilih milih tanpa memandang ketulusan asalkan banyak cuan langsung di gaskan</p>', '6', 1, '2022-10-21 03:58:29', '3000000', 1, 'root'),
 (16, '202210210359112', 'klepon ijo', '<p>klepon ijo</p>\r\n<p>klepon ijo</p>\r\n<p>klepon ijo</p>\r\n<p>klepon ijo</p>\r\n<p>klepon ijo</p>\r\n<p>klepon ijo</p>', '6', 1, '2022-10-21 03:59:11', '10000', 50, 'root'),
-(18, '202210210400432', 'Es Doger', '', '6', 1, '2022-10-21 04:00:43', '10', 11, 'root'),
-(19, '202210210401452', 'udang keju', '<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>&nbsp;</p>', '6', 1, '2022-10-21 04:01:45', '8000', 1, 'root'),
-(20, '202210210402092', 'Baju Cwek ', '', '10', 1, '2022-10-21 04:02:09', '379999', 28, 'root'),
-(22, '202210210402302', 'Kaos Polos', '', '10', 1, '2022-10-21 04:02:30', '45000', 30, 'root');
+(19, '202210210401452', 'udang keju', '<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>&nbsp;</p>', '6', 1, '2022-10-21 04:01:45', '8000', 1, 'root');
 
 -- --------------------------------------------------------
 

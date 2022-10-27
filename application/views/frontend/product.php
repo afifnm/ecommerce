@@ -6,46 +6,40 @@
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <title><?php echo $title; ?></title>
     <?php require_once('_css.php'); ?>
+    <style>
+      .s_product_text p{
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+    </style>
   </head>
   <body>
     <?php require_once('_navigasi.php'); ?>
     <?php require_once('_header.php'); ?>
-    <section class="cat_product_area" style="padding-top: 20px; padding-bottom:120px;">
-      <div class="container">
-        <div class="row flex-row-reverse">
-          <div class="col-lg-9">
-            <div class="product_top_bar" style="padding :0px;">
-              <div class="input-group-icon mt-10">
-                <div class="icon">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </div>
-                    <input type="text" name="address" placeholder="Pencarian..." class="single-input" id="cari">
-                </div>
-            </div>
-            <div class="latest_product_inner">
-              <div class="row">
-  <?php foreach ($products as $product) { ?>
-    <div class="product_image_area">
+    <?php foreach ($products as $product) { ?>
+          <!--================Single Product Area =================-->
+    <div class="product_image_area"  style="margin-bottom: 50px ; padding-top: 50px;">
       <div class="container">
         <div class="row s_product_inner">
-          <div class="col-lg-12">
-            <div class="s_product_img" style="">
-              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                  <?php $no=0; foreach ($this->CRUD_model->foto_produk($product['kode_produk']) as $foto) { ?>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $no; ?>" 
-                  class="<?php if ($no==0) { echo 'active';} ?>">
-                    <img src="<?php echo site_url('assets/upload/images/produk/'.$foto['namafile']);?>">
-                  </li>
-                  <?php $no++; } ?>
-                </ol>
+          <div class="col-lg-6">
+            <div class="s_product_img">
+              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                  <?php $no=0; foreach ($this->CRUD_model->foto_produk($product['kode_produk']) as $foto2) { ?>
-                  <div class="carousel-item <?php if ($no==0) { echo 'active';} ?>">
-                    <img class="d-block w-100" src="<?php echo site_url('assets/upload/images/produk/'.$foto2['namafile']);?>">
+                  <?php $no=0; foreach ($this->CRUD_model->foto_produk($product['kode_produk']) as $foto) { ?>
+                  <div class="carousel-item <?php if ($no==0) { echo 'active'; } ?>">
+                    <img src="<?php echo site_url('assets/upload/images/produk/'.$foto['namafile']);?>" class="d-block w-100" alt="...">
                   </div>
                   <?php $no++; } ?>
                 </div>
+              <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </button>
               </div>
             </div>
           </div>
@@ -55,49 +49,30 @@
               <h2>Rp. <?php echo number_format($product['harga'],0,",","."); ?></h2>
               <ul class="list">
                 <li>
-                  <a class="active" href="#">
-                    <span>Kategori</span> : <?php echo $product['kategori']; ?></a>
+                  <a class="active" href="<?php echo site_url('home/kategori/'.$product['id_kategori'].'/0');?>">
+                    <span>Kategori</span> : <?php echo $this->CRUD_model->get_kategori($product['id_kategori']); ?>
+                  </a>
                 </li>
                 <li>
-                  <a href="#"> <span>Stok</span> : <?php echo $product['stok']; ?></a>
+                  <a href="#"> <span>Stok</span> : <?php echo $product['stok']; ?> pc</a>
                 </li>
               </ul>
-              <p>
                 <?php echo $product['deskripsi']; ?>
-              </p>
               <div class="product_count">
-                <label for="qty">Quantity:</label>
-                <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-                <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button">
-                  <i class="lnr lnr-chevron-up"></i>
-                </button>
-                <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;" class="reduced items-count" type="button">
-                  <i class="lnr lnr-chevron-down"></i>
-                </button>
+                <label for="qty">Jumlah:</label>
+                <input type="number" name="qty" maxlength="12" value="1" title="Quantity:" class="input-text qty"/>
               </div>
               <div class="card_area">
-                <a class="main_btn" href="#">Add to Cart</a>
-                <a class="icon_btn" href="#">
-                  <i class="lnr lnr lnr-diamond"></i>
-                </a>
-                <a class="icon_btn" href="#">
-                  <i class="lnr lnr lnr-heart"></i>
-                </a>
+                <a class="main_btn" href="#">Masukan Keranjang</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div> 
-  <?php } ?> 
-
-              </div>
-            </div>
-          </div>
-          <?php require_once('_sidebar.php'); ?>
-        </div>
-      </div>
-    </section>
+    </div>
+    <!--================End Single Product Area =================-->
+    <br>
+    <?php } ?> 
     <?php require_once('_footer.php'); ?>
     <?php require_once('_js.php'); ?>
     <script>

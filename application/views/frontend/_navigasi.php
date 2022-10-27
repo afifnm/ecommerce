@@ -57,7 +57,7 @@ $kategori_produk = $this->db->get()->result_array();
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="icons">
+                    <a href="<?php echo site_url('admin') ?>" class="icons">
                     <i class="ti-user" aria-hidden="true"></i> Login
                     </a>
                 </li>
