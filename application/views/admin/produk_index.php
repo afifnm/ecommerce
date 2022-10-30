@@ -40,9 +40,16 @@
                 <?php }  ?>
               </td>
               <td align="center">
-                <a href="<?php echo site_url('admin/produk/delete_data/'.$user['id_kategori'].'/'.$user['kode_produk']);?>" class="btn btn-sm btn-danger" onClick="return confirm('Apakah anda yakin menghapus data ini?')"><span class="tf-icons bx bx-trash-alt"></span></a>
-                <a href="<?php echo site_url('admin/produk/editdata/'.$user['id_kategori'].'/'.$user['kode_produk']);?>" class="btn btn-sm btn-warning" ><span class="tf-icons bx bx-edit-alt"></span></a>     
-                <a href="<?php echo site_url('admin/produk/foto/'.$user['id_kategori'].'/'.$user['kode_produk']);?>" class="btn btn-sm btn-primary" ><span class="tf-icons bx bx-image-add"></span></a>      
+                <a href="<?php echo site_url('admin/produk/delete_data/'.$user['id_kategori'].'/'.$user['kode_produk']);?>" class="btn btn-sm btn-danger"
+                  onClick="return confirm('Apakah anda yakin menghapus data ini?')">
+                  <span class="tf-icons bx bx-trash-alt"></span>
+                </a>
+                <a href="<?php echo site_url('admin/produk/editdata/'.$user['id_kategori'].'/'.$user['kode_produk']);?>" class="btn btn-sm btn-warning" >
+                  <span class="tf-icons bx bx-edit-alt"></span>
+                </a>     
+                <a href="<?php echo site_url('admin/produk/foto/'.$user['id_kategori'].'/'.$user['kode_produk']);?>" class="btn btn-sm btn-primary" >
+                  <span class="tf-icons bx bx-image-add"></span>
+                </a>      
               </td>
             </tr>
             <?php $no++; } ?>
@@ -53,50 +60,50 @@
   </div>
 </div>
 <div class="modal fade" id="backDropModal" data-bs-backdrop="static" tabindex="-1">
-<div class="modal-dialog modal-xl">
-  <form class="modal-content" method="post" action="<?php echo site_url('admin/produk/simpan');?>">
-    <div class="modal-header">
-      <h5 class="modal-title" id="backDropModalTitle">
-        <span class="tf-icons bx bx-message-add"></span>&nbsp; Tambah Produk
-      </h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-      <div class="row">
-        <div class="col mb-3">
-          <label for="nameBackdrop" class="form-label">Nama Produk</label>
-          <input type="text"class="form-control" placeholder="Nama Produk" name="nama" required>
+  <div class="modal-dialog modal-xl">
+    <form class="modal-content" method="post" action="<?php echo site_url('admin/produk/simpan');?>">
+      <div class="modal-header">
+        <h5 class="modal-title" id="backDropModalTitle">
+          <span class="tf-icons bx bx-message-add"></span>&nbsp; Tambah Produk
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col mb-3">
+            <label for="nameBackdrop" class="form-label">Nama Produk</label>
+            <input type="text"class="form-control" placeholder="Nama Produk" name="nama" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col mb-3">
+            <label for="nameBackdrop" class="form-label">Kategori Produk</label>
+            <select name="kategori" class="form-control">
+              <?php foreach ($kategori as $show) {?>
+                  <option value="<?php echo $show['id_kategori'] ?>"><?php echo $show['kategori'] ?></option>   
+              <?php }?>
+            </select>
+          </div>
+          <div class="col mb-3">
+            <label for="nameBackdrop" class="form-label">Harga</label>
+            <input type="number" class="form-control" placeholder="Harga Produk" name="harga" required>
+          </div>
+          <div class="col mb-3">
+            <label for="nameBackdrop" class="form-label">Stok</label>
+            <input type="number" class="form-control" placeholder="Stok Produk" name="stok" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col mb-3">
+            <label for="nameBackdrop" class="form-label">Deskripsi</label>
+            <textarea class="deskripsi" name="deskripsi"></textarea>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col mb-3">
-          <label for="nameBackdrop" class="form-label">Kategori Produk</label>
-          <select name="kategori" class="form-control">
-            <?php foreach ($kategori as $show) {?>
-                <option value="<?php echo $show['id_kategori'] ?>"><?php echo $show['kategori'] ?></option>   
-            <?php }?>
-          </select>
-        </div>
-        <div class="col mb-3">
-          <label for="nameBackdrop" class="form-label">Harga</label>
-          <input type="number" class="form-control" placeholder="Harga Produk" name="harga" required>
-        </div>
-        <div class="col mb-3">
-          <label for="nameBackdrop" class="form-label">Stok</label>
-          <input type="number" class="form-control" placeholder="Stok Produk" name="stok" required>
-        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"> Close </button>
+        <button type="submit" class="btn btn-primary">Save</button>
       </div>
-      <div class="row">
-        <div class="col mb-3">
-          <label for="nameBackdrop" class="form-label">Deskripsi</label>
-          <textarea class="deskripsi" name="deskripsi"></textarea>
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"> Close </button>
-      <button type="submit" class="btn btn-primary">Save</button>
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
 </div>

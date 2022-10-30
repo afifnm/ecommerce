@@ -5,7 +5,7 @@
                       <script>
                         document.write(new Date().getFullYear());
                       </script>
-                      , made with ❤️ by Apip
+                      , SMKN 1 Sukoharjo
                     </div>
                   </div>
                 </footer>

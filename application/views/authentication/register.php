@@ -1,17 +1,4 @@
 <!DOCTYPE html>
-
-<!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
-==============================================================
-
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
-* Created by: ThemeSelection
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright ThemeSelection (https://themeselection.com)
-
-=========================================================
- -->
-<!-- beautify ignore:start -->
 <html
   lang="en"
   class="light-style customizer-hide"
@@ -26,47 +13,26 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
-
     <title>Register | <?php echo $site['nama_website']?></title>
-
     <meta name="description" content="" />
-
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="<?php echo base_url('assets');?>/vendor/sneat/assets/img/favicon/favicon.ico" />
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="<?php echo base_url('assets');?>/vendor/sneat/assets/vendor/fonts/boxicons.css" />
-
-    <!-- Core CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets');?>/vendor/sneat/assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="<?php echo base_url('assets');?>/vendor/sneat/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="<?php echo base_url('assets');?>/vendor/sneat/assets/css/demo.css" />
-
-    <!-- Vendors CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets');?>/vendor/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
-    <!-- Page CSS -->
-    <!-- Page -->
     <link rel="stylesheet" href="<?php echo base_url('assets');?>/vendor/sneat/assets/vendor/css/pages/page-auth.css" />
-    <!-- Helpers -->
     <script src="<?php echo base_url('assets');?>/vendor/sneat/assets/vendor/js/helpers.js"></script>
-
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="<?php echo base_url('assets');?>/vendor/sneat/assets/js/config.js"></script>
   </head>
-
   <body>
     <!-- Content -->
-
     <div class="container-xxl">
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner">
@@ -74,32 +40,68 @@
           <div class="card">
             <div class="card-body">
               <h4 class="mb-2"><?php echo $site['nama_website']?> 👋</h4>
-              <p class="mb-4">Masuk Dengan Username & Password Anda</p>
-
-              <form method="post" action="<?php echo base_url('auth/login'); ?>" role="login">
+              <p class="mb-4">Register</p>
+              <form class="form-horizontal" method="post" action="<?php echo site_url('auth/simpan');?>">
                 <div class="mb-3">
-                  <label for="email" class="form-label">NIS/NIP</label>
-                  <input type="text" class="form-control" name="username" placeholder="Enter your username">
+                  <label class="form-label">Username/NIS</label>
+                  <input type="text" class="form-control" name="username" placeholder="username/NIS" required>
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
                     <label class="form-label" for="password">Password</label>
                   </div>
                   <div class="input-group input-group-merge">
-                    <input type="password" id="password" class="form-control" name="password  placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;  aria-describedby="password"
-                    />
+                  <input type="password" class="form-control" name="password" placeholder="Password" required>
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>
                 <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit" name="submit" value="login">Register</button>
+                  <label class="form-label">Register Sebagai</label>
+                  <select class="form-select form-select-lg" name="level" id="level">
+                    <option value="Siswa">Siswa</option>
+                    <option value="Konsumen">Konsumen</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Nama Lengkap</label>
+                  <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" name="email" placeholder="Email">
+                </div>
+                <div class="mb-3" id="tempat_lahir">
+                  <label class="form-label">Tempat Lahir</label>
+                  <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir">
+                </div>
+                <div class="mb-3" id="tanggal_lahir">
+                  <label class="form-label">Tanggal Lahir</label>
+                  <input type="date" class="form-control" name="tanggal_lahir" placeholder="Tanggal Lahir" >
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Alamat</label>
+                  <input type="text" class="form-control" name="alamat" placeholder="Alamat">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">No. Telp</label>
+                  <input type="text" class="form-control" name="no_hp" placeholder="No. HP">
+                </div>
+                <div class="mb-3" id="kelas">
+                  <label class="form-label">Kelas</label>
+                  <input type="text" class="form-control" name="kelas" placeholder="Kelas">
+                </div>
+                <div class="mb-3" id="tahun_ajaran">
+                  <label class="form-label">Tahun Ajaran</label>
+                  <input type="text" class="form-control" name="tahun_ajaran" placeholder="Tahun ajaran masuk" >
+                </div>
+                <div class="mb-3">
+                  <button class="btn btn-primary d-grid w-100" type="submit" name="submit">Register</button>
                 </div>
               </form>
-
               <p class="text-center">
-                <span>Belum punya akun?</span><br>
-                <a href="register">
-                  <span>Klik disini untuk membuat akun</span>
+                <span>Sudah punya akun?</span><br>
+                <a href="login">
+                  <span>Klik disini untuk login</span>
                 </a>
               </p>
               <div id="myalert">
@@ -116,18 +118,8 @@
     <script src="<?php echo base_url('assets');?>/vendor/sneat/assets/vendor/libs/popper/popper.js"></script>
     <script src="<?php echo base_url('assets');?>/vendor/sneat/assets/vendor/js/bootstrap.js"></script>
     <script src="<?php echo base_url('assets');?>/vendor/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
     <script src="<?php echo base_url('assets');?>/vendor/sneat/assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
-
-    <!-- Vendors JS -->
-
-    <!-- Main JS -->
     <script src="<?php echo base_url('assets');?>/vendor/sneat/assets/js/main.js"></script>
-
-    <!-- Page JS -->
-
-    <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script>
 	$(function() {
@@ -139,5 +131,15 @@
 	});
 	$('#myalert').delay('slow').slideDown('slow').delay(6500).slideUp(600);
 	</script>
+    <script>
+        const tahun_ajaran = document.getElementById('tahun_ajaran');
+        const select = document.getElementById('level');
+        select.addEventListener('change', function() {
+        console.log(select.value);
+        if (select.value=='Konsumen') {
+            tahun_ajaran.style.display = none;
+        }
+        })
+    </script>
   </body>
 </html>

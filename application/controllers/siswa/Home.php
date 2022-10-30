@@ -11,7 +11,7 @@ class Home extends MY_Controller
         $this->load->model('CRUD_model');
         $this->load->model('Laporan_model');
         $this->check_login();
-        if ($this->session->userdata('level') != "Pengguna"){
+        if ($this->session->userdata('level') != "Siswa"){
             redirect('', 'refresh');
         }
     }
@@ -25,7 +25,7 @@ class Home extends MY_Controller
                     <a href="../home" class="navigasi-link">Dashboard</a>
             '
         );
-        $this->template->load('layout/template', 'admin/dashboard', array_merge($data));
+        $this->template->load('layout/template', 'siswa/dashboard', array_merge($data));
     }
 }
  

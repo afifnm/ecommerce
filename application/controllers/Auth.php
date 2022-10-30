@@ -17,6 +17,28 @@ class Auth extends MY_Controller
       );
       $this->load->view('authentication/register', $data);
     }
+    public function simpan(){
+        $username = $this->input->post('username');
+        $cekusername = $this->db->where('username', $username)->count_all_results('user');
+        if ($cekusername > 0) {
+            $this->session->set_flashdata('alert', '
+            <div class="alert alert-primary alert-dismissible" role="alert">
+            Username/NIS sudah digunakan, silahkan coba lagi dengan username/nis lain.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+                ');
+             redirect('auth/register'); 
+        } else{
+            $this->session->set_flashdata('alert', '
+            <div class="alert alert-primary alert-dismissible" role="alert">
+            Berhasil mendaftar, silahkan login terlebih dahulu.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+                ');
+            $this->Auth_model->register(); 
+            redirect('auth/login'); 
+        } 
+    }
     public function check_account()
     {
         //validasi login
@@ -82,8 +104,11 @@ class Auth extends MY_Controller
         if ($this->session->userdata('level') == "Admin") {
             redirect('admin/home');
         } 
-        if ($this->session->userdata('level') == "Pengguna") {
-            redirect('pengguna/home');
+        if ($this->session->userdata('level') == "Siswa") {
+            redirect('siswa/home');
+        } 
+        if ($this->session->userdata('level') == "konsumen") {
+            redirect('konsumen/home');
         } 
         //proses login dan validasi nya
         if ($this->input->post('submit')) {
@@ -96,8 +121,10 @@ class Auth extends MY_Controller
                 //jika bernilai TRUE maka alihkan halaman sesuai dengan level nya
                 if ($data->level == 'Admin') {
                     redirect('admin/home');
+                } elseif ($data->level == 'Siswa') {
+                    redirect('siswa/home');
                 } else {
-                    redirect('pengguna/home');
+                    redirect('konsumen/home');
                 }
             } else {
                 $this->load->view('authentication/login', $data);

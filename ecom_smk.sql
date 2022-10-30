@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2022 at 10:26 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Waktu pembuatan: 30 Okt 2022 pada 14.35
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto`
+-- Struktur dari tabel `affiliasi`
+--
+
+CREATE TABLE `affiliasi` (
+  `id_affiliasi` int(11) NOT NULL,
+  `kode_produk` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `affiliasi`
+--
+
+INSERT INTO `affiliasi` (`id_affiliasi`, `kode_produk`, `username`) VALUES
+(4, '202210210359112', 'K3514003'),
+(5, '202210210356432', 'K3514003');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `foto`
 --
 
 CREATE TABLE `foto` (
@@ -34,7 +54,7 @@ CREATE TABLE `foto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto`
+-- Dumping data untuk tabel `foto`
 --
 
 INSERT INTO `foto` (`id_foto`, `kode_produk`, `namafile`) VALUES
@@ -62,7 +82,7 @@ INSERT INTO `foto` (`id_foto`, `kode_produk`, `namafile`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -72,7 +92,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `kategori`, `active`) VALUES
@@ -85,7 +105,7 @@ INSERT INTO `kategori` (`id_kategori`, `kategori`, `active`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `konfigurasi`
+-- Struktur dari tabel `konfigurasi`
 --
 
 CREATE TABLE `konfigurasi` (
@@ -96,16 +116,16 @@ CREATE TABLE `konfigurasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `konfigurasi`
+-- Dumping data untuk tabel `konfigurasi`
 --
 
 INSERT INTO `konfigurasi` (`id`, `nama_website`, `favicon`, `logo`) VALUES
-(1, 'Merch Tefa', 'fav.ico', 'logo.png');
+(1, 'Bismart Tefa', 'fav.ico', 'logo.png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Struktur dari tabel `produk`
 --
 
 CREATE TABLE `produk` (
@@ -122,7 +142,7 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `produk`
+-- Dumping data untuk tabel `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `kode_produk`, `nama`, `deskripsi`, `id_kategori`, `active`, `tanggal`, `harga`, `stok`, `username`) VALUES
@@ -134,20 +154,21 @@ INSERT INTO `produk` (`id_produk`, `kode_produk`, `nama`, `deskripsi`, `id_kateg
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(60) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `level` enum('Admin','Pengguna') NOT NULL,
+  `level` enum('Admin','Konsumen','Siswa') NOT NULL,
   `nama` varchar(70) NOT NULL,
+  `store` varchar(70) DEFAULT NULL,
   `tempat_lahir` varchar(40) DEFAULT NULL,
   `tanggal_lahir` date DEFAULT NULL,
   `alamat` text DEFAULT NULL,
-  `kelas` varchar(10) NOT NULL,
-  `tahun_ajaran` varchar(10) NOT NULL,
+  `kelas` varchar(10) DEFAULT NULL,
+  `tahun_ajaran` varchar(10) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `no_hp` varchar(50) DEFAULT NULL,
   `foto` varchar(100) NOT NULL,
@@ -156,80 +177,95 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `level`, `nama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `kelas`, `tahun_ajaran`, `email`, `no_hp`, `foto`, `active`, `last_login`) VALUES
-(2, 'root', '$2y$05$vNyScV3/zLsCS2FFkMdtrufbXzrQIVdGAe34Z8pE7VxvoO9QMCsEu', 'Admin', 'Muryanti, S.Kom, M.Kom', 'Boyolali', '1996-09-02', 'Karanganyar RT 02 RW 01, Bejen, Bejen, Karanganyar, 57444', '', '', 'muryanti@gmail.com', '896733333181', 'root.jpg', 1, '2022-10-27 13:08:46'),
-(5, 'K3514003', '$2y$05$E6cvam62HaVPMszZTjWMoe48UBVmQMov05GvIkBg5Cjp2GWT7E9/e', 'Pengguna', 'Afif Nuruddin Maisaroh', 'Sukoharjo', '1996-06-08', 'Suruh RT 02 RW 01, Kayuapak, Polokarto, Sukoharjo, 57555', 'XI RB', '2011', 'afifnuruddinmaisaroh@gmail.com', '089673333318', 'K3514003.jpg', 1, '2022-10-12 11:18:41');
+INSERT INTO `user` (`id`, `username`, `password`, `level`, `nama`, `store`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `kelas`, `tahun_ajaran`, `email`, `no_hp`, `foto`, `active`, `last_login`) VALUES
+(2, 'root', '$2y$05$vNyScV3/zLsCS2FFkMdtrufbXzrQIVdGAe34Z8pE7VxvoO9QMCsEu', 'Admin', 'Muryanti, S.Kom, M.Kom', '', 'Boyolali', '1996-09-02', 'Karanganyar RT 02 RW 01, Bejen, Bejen, Karanganyar, 57444', '', '', 'muryanti@gmail.com', '896733333181', 'root.jpg', 1, '2022-10-27 13:08:46'),
+(5, 'K3514003', '$2y$05$E6cvam62HaVPMszZTjWMoe48UBVmQMov05GvIkBg5Cjp2GWT7E9/e', 'Siswa', 'Afif Nuruddin Maisaroh', '', 'Sukoharjo', '1996-06-08', 'Suruh RT 02 RW 01, Kayuapak, Polokarto, Sukoharjo, 57555', 'XI RB', '2011', 'afifnuruddinmaisaroh@gmail.com', '089673333318', 'K3514003.jpg', 1, '2022-10-30 12:44:59'),
+(6, '101', '$2y$05$2MSOn7kuG2a.v9RkqAP/Z.wDSpw2Nr3YYhYR8zs8eP.FQCzKL987S', 'Siswa', 'Sutarmadi', NULL, 'asasd', '2022-09-27', 'asdasd', 'XRA', '2010', '101@asdas.com', '1231231', '', 1, '2022-10-30 20:33:25'),
+(7, '001', '$2y$05$6kQs0a7dqU1btvxWjhjxeeIpYveMx59.UCp4VF7jtiG2NkR.9sWGG', 'Siswa', 'Sutarmadi', NULL, '', '0000-00-00', '', '', '', '', '', '', 1, '2022-10-30 20:33:06'),
+(8, '102', '$2y$05$C462u/qPNgxInqHKCxEh9.UKRdRQ021oIwnsWT0lvnduThi.bZfzS', 'Siswa', 'Sumanto', NULL, '', '0000-00-00', '', '', '', '', '', '', 1, '2022-10-30 20:34:30');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `foto`
+-- Indeks untuk tabel `affiliasi`
+--
+ALTER TABLE `affiliasi`
+  ADD PRIMARY KEY (`id_affiliasi`);
+
+--
+-- Indeks untuk tabel `foto`
 --
 ALTER TABLE `foto`
   ADD PRIMARY KEY (`id_foto`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `konfigurasi`
+-- Indeks untuk tabel `konfigurasi`
 --
 ALTER TABLE `konfigurasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `produk`
+-- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `foto`
+-- AUTO_INCREMENT untuk tabel `affiliasi`
+--
+ALTER TABLE `affiliasi`
+  MODIFY `id_affiliasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT untuk tabel `foto`
 --
 ALTER TABLE `foto`
   MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `konfigurasi`
+-- AUTO_INCREMENT untuk tabel `konfigurasi`
 --
 ALTER TABLE `konfigurasi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `produk`
+-- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
