@@ -129,7 +129,7 @@ class Home extends MY_Controller
         $nama = $this->CRUD_model->get_nama($id);
         $site = $this->Konfigurasi_model->listing();
         $data = array(
-            'title'                 => 'Pencarian | '.$site['nama_website'],
+            'title'                 => $nama.' | '.$site['nama_website'],
             'site'                  => $site,
             'nama_kategori'         => $nama
         );
@@ -141,4 +141,15 @@ class Home extends MY_Controller
         $data2 = array('products' => $data2);
         $this->load->view('frontend/product',array_merge($data,$data2));
     } 
+    public function keranjang(){
+        if ($this->session->userdata('level')!='Konsumen') {
+            $this->session->set_flashdata('alert', '
+            <div class="alert alert-primary alert-dismissible" role="alert">
+            Silahkan login terlebih dahulu untuk menambah produk ke keranjang.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+                ');
+            redirect('auth/login');   
+        }
+    }
 }

@@ -13,6 +13,7 @@
     $('#example').DataTable();
     $('#example2').DataTable();
   });
+	$('#myalert').delay('slow').slideDown('slow').delay(4000).slideUp(600);
 </script>
 <script src="https://cdn.tiny.cloud/1/aq37vou6o6fl7r2lfo92721t18z6173r03hevnh6qpu52i0f/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>

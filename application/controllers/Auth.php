@@ -107,8 +107,8 @@ class Auth extends MY_Controller
         if ($this->session->userdata('level') == "Siswa") {
             redirect('siswa/home');
         } 
-        if ($this->session->userdata('level') == "konsumen") {
-            redirect('konsumen/home');
+        if ($this->session->userdata('level') == "Pembeli") {
+            redirect('pembeli/home');
         } 
         //proses login dan validasi nya
         if ($this->input->post('submit')) {
@@ -124,7 +124,7 @@ class Auth extends MY_Controller
                 } elseif ($data->level == 'Siswa') {
                     redirect('siswa/home');
                 } else {
-                    redirect('konsumen/home');
+                    redirect('pembeli/home');
                 }
             } else {
                 $this->load->view('authentication/login', $data);

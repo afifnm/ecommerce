@@ -65,8 +65,8 @@ $kategori_produk = $this->db->get()->result_array();
                         <a href="<?php echo site_url('admin') ?>" class="icons">
                         <i class="ti-user" aria-hidden="true"></i> <?php echo $this->session->userdata('nama'); ?>
                         </a>
-                    <?php } elseif ($this->session->userdata('level')=='Konsumen') { ?>
-                        <a href="<?php echo site_url('konsumen') ?>" class="icons">
+                    <?php } elseif ($this->session->userdata('level')=='Pembeli') { ?>
+                        <a href="<?php echo site_url('pembeli') ?>" class="icons">
                         <i class="ti-user" aria-hidden="true"></i> <?php echo $this->session->userdata('nama'); ?>
                         </a>
                     <?php } else { ?>

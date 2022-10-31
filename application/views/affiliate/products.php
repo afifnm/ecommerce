@@ -30,7 +30,8 @@
                     <div class="single-product">
                       <div class="product-img">
                         <?php foreach ($this->CRUD_model->foto_produk_1($produk->kode_produk) as $foto) { ?>
-                        <img class="card-img" src="<?php echo site_url('assets/upload/images/produk/'.$foto['namafile']);?>">
+                        <img class="card-img" src="<?php echo site_url('assets/upload/images/produk/'.$foto['namafile']);?>"
+                        style="width: 260px; height: 180px;">
                         <?php } ?>
                         <div class="p_icon">
                           <a href="<?php echo site_url('home/product/'.$produk->kode_produk) ?>">

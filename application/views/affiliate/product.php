@@ -28,7 +28,7 @@
                 <div class="carousel-inner">
                   <?php $no=0; foreach ($this->CRUD_model->foto_produk($product['kode_produk']) as $foto) { ?>
                   <div class="carousel-item <?php if ($no==0) { echo 'active'; } ?>">
-                    <img src="<?php echo site_url('assets/upload/images/produk/'.$foto['namafile']);?>" class="d-block w-100" alt="...">
+                    <img src="<?php echo site_url('assets/upload/images/produk/'.$foto['namafile']);?>" class="d-block w-100">
                   </div>
                   <?php $no++; } ?>
                 </div>

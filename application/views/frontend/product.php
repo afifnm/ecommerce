@@ -58,13 +58,15 @@
                 </li>
               </ul>
                 <?php echo $product['deskripsi']; ?>
-              <div class="product_count">
-                <label for="qty">Jumlah:</label>
-                <input type="number" name="qty" maxlength="12" value="1" title="Quantity:" class="input-text qty"/>
-              </div>
-              <div class="card_area">
-                <a class="main_btn" href="#">Masukan Keranjang</a>
-              </div>
+              <form method="post" action="<?php echo site_url('home/keranjang');?>">
+                <div class="product_count">
+                  <label for="qty">Jumlah:</label>
+                  <input type="number" name="qty" maxlength="12" value="1" title="Quantity:" class="input-text qty"/>
+                </div>
+                <div class="card_area"> 
+                  <button class="main_btn" type="submit">Masukan Keranjang</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

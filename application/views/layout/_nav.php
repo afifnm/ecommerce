@@ -36,7 +36,7 @@
                   <div class="flex-shrink-0 me-3">
                     <div class="avatar avatar-online">
                       <?php $filename=FCPATH.'/assets/upload/images/profil/'.$this->session->userdata('foto');
-                      if (file_exists($filename)){ ?>
+                      if (file_exists($filename) || $this->session->userdata('foto')==''){ ?>
                         <img class="user-image" src="<?php echo base_url('assets/upload/images/profil/'.$this->session->userdata('foto')); ?>" alt class="w-px-40 h-auto rounded-circle">
                       <?php }  else {?>
                         <img class="user-image" src="<?php echo base_url('assets/upload/images/no_image.jpg'); ?>" alt class="w-px-40 h-auto rounded-circle">

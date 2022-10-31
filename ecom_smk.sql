@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Okt 2022 pada 14.35
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 7.4.29
+-- Generation Time: Oct 31, 2022 at 09:33 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `affiliasi`
+-- Table structure for table `affiliasi`
 --
 
 CREATE TABLE `affiliasi` (
@@ -34,7 +34,7 @@ CREATE TABLE `affiliasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `affiliasi`
+-- Dumping data for table `affiliasi`
 --
 
 INSERT INTO `affiliasi` (`id_affiliasi`, `kode_produk`, `username`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `affiliasi` (`id_affiliasi`, `kode_produk`, `username`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `foto`
+-- Table structure for table `foto`
 --
 
 CREATE TABLE `foto` (
@@ -54,7 +54,7 @@ CREATE TABLE `foto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `foto`
+-- Dumping data for table `foto`
 --
 
 INSERT INTO `foto` (`id_foto`, `kode_produk`, `namafile`) VALUES
@@ -82,7 +82,7 @@ INSERT INTO `foto` (`id_foto`, `kode_produk`, `namafile`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -92,7 +92,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori`
+-- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `kategori`, `active`) VALUES
@@ -105,7 +105,7 @@ INSERT INTO `kategori` (`id_kategori`, `kategori`, `active`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `konfigurasi`
+-- Table structure for table `konfigurasi`
 --
 
 CREATE TABLE `konfigurasi` (
@@ -116,7 +116,7 @@ CREATE TABLE `konfigurasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `konfigurasi`
+-- Dumping data for table `konfigurasi`
 --
 
 INSERT INTO `konfigurasi` (`id`, `nama_website`, `favicon`, `logo`) VALUES
@@ -125,7 +125,7 @@ INSERT INTO `konfigurasi` (`id`, `nama_website`, `favicon`, `logo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Table structure for table `produk`
 --
 
 CREATE TABLE `produk` (
@@ -142,7 +142,7 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `produk`
+-- Dumping data for table `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `kode_produk`, `nama`, `deskripsi`, `id_kategori`, `active`, `tanggal`, `harga`, `stok`, `username`) VALUES
@@ -154,14 +154,14 @@ INSERT INTO `produk` (`id_produk`, `kode_produk`, `nama`, `deskripsi`, `id_kateg
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(60) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `level` enum('Admin','Konsumen','Siswa') NOT NULL,
+  `level` enum('Admin','Pembeli','Siswa') NOT NULL,
   `nama` varchar(70) NOT NULL,
   `store` varchar(70) DEFAULT NULL,
   `tempat_lahir` varchar(40) DEFAULT NULL,
@@ -177,95 +177,95 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `level`, `nama`, `store`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `kelas`, `tahun_ajaran`, `email`, `no_hp`, `foto`, `active`, `last_login`) VALUES
 (2, 'root', '$2y$05$vNyScV3/zLsCS2FFkMdtrufbXzrQIVdGAe34Z8pE7VxvoO9QMCsEu', 'Admin', 'Muryanti, S.Kom, M.Kom', '', 'Boyolali', '1996-09-02', 'Karanganyar RT 02 RW 01, Bejen, Bejen, Karanganyar, 57444', '', '', 'muryanti@gmail.com', '896733333181', 'root.jpg', 1, '2022-10-27 13:08:46'),
 (5, 'K3514003', '$2y$05$E6cvam62HaVPMszZTjWMoe48UBVmQMov05GvIkBg5Cjp2GWT7E9/e', 'Siswa', 'Afif Nuruddin Maisaroh', '', 'Sukoharjo', '1996-06-08', 'Suruh RT 02 RW 01, Kayuapak, Polokarto, Sukoharjo, 57555', 'XI RB', '2011', 'afifnuruddinmaisaroh@gmail.com', '089673333318', 'K3514003.jpg', 1, '2022-10-30 12:44:59'),
-(6, '101', '$2y$05$2MSOn7kuG2a.v9RkqAP/Z.wDSpw2Nr3YYhYR8zs8eP.FQCzKL987S', 'Siswa', 'Sutarmadi', NULL, 'asasd', '2022-09-27', 'asdasd', 'XRA', '2010', '101@asdas.com', '1231231', '', 1, '2022-10-30 20:33:25'),
-(7, '001', '$2y$05$6kQs0a7dqU1btvxWjhjxeeIpYveMx59.UCp4VF7jtiG2NkR.9sWGG', 'Siswa', 'Sutarmadi', NULL, '', '0000-00-00', '', '', '', '', '', '', 1, '2022-10-30 20:33:06'),
-(8, '102', '$2y$05$C462u/qPNgxInqHKCxEh9.UKRdRQ021oIwnsWT0lvnduThi.bZfzS', 'Siswa', 'Sumanto', NULL, '', '0000-00-00', '', '', '', '', '', '', 1, '2022-10-30 20:34:30');
+(6, '101', '$2y$05$2MSOn7kuG2a.v9RkqAP/Z.wDSpw2Nr3YYhYR8zs8eP.FQCzKL987S', 'Siswa', 'Sutarmadi', NULL, 'asasd', '2022-09-27', 'asdasd', 'XRA', '2010', '101@asdas.com', '1231231', '101.jpg', 1, '2022-10-31 09:27:41'),
+(8, '102', '$2y$05$C462u/qPNgxInqHKCxEh9.UKRdRQ021oIwnsWT0lvnduThi.bZfzS', 'Siswa', 'Sumanto', NULL, '', '0000-00-00', '', '', '', '', '', '102.jpg', 1, '2022-10-31 09:27:49'),
+(10, '201', '$2y$05$vAbwICeFZfOjy2JTxtBJG.L00d.hhjHAtwjEYI/Dkao9NTFq7vQoO', 'Pembeli', 'Nuruddin, M.Pd', NULL, '', '0000-00-00', 'Suruh RT 02/01', '', '', 'afifnuruddinmaisaroh@gmail.com', '089673333318', '201jpg', 1, '2022-10-31 10:57:57');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `affiliasi`
+-- Indexes for table `affiliasi`
 --
 ALTER TABLE `affiliasi`
   ADD PRIMARY KEY (`id_affiliasi`);
 
 --
--- Indeks untuk tabel `foto`
+-- Indexes for table `foto`
 --
 ALTER TABLE `foto`
   ADD PRIMARY KEY (`id_foto`);
 
 --
--- Indeks untuk tabel `kategori`
+-- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indeks untuk tabel `konfigurasi`
+-- Indexes for table `konfigurasi`
 --
 ALTER TABLE `konfigurasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `produk`
+-- Indexes for table `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `affiliasi`
+-- AUTO_INCREMENT for table `affiliasi`
 --
 ALTER TABLE `affiliasi`
   MODIFY `id_affiliasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `foto`
+-- AUTO_INCREMENT for table `foto`
 --
 ALTER TABLE `foto`
   MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT untuk tabel `kategori`
+-- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `konfigurasi`
+-- AUTO_INCREMENT for table `konfigurasi`
 --
 ALTER TABLE `konfigurasi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `produk`
+-- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
   MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -59,13 +59,13 @@
                   <label class="form-label">Register Sebagai</label>
                   <select class="form-select form-select-lg" name="level" id="level">
                     <option value="Siswa">Siswa</option>
-                    <option value="Konsumen">Konsumen</option>
+                    <option value="Pembeli">Pembeli</option>
                     </select>
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Nama Lengkap</label>
                   <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" required>
-                </div>
+                </div> 
                 <div class="mb-3">
                   <label class="form-label">Email</label>
                   <input type="email" class="form-control" name="email" placeholder="Email">
@@ -133,11 +133,22 @@
 	</script>
     <script>
         const tahun_ajaran = document.getElementById('tahun_ajaran');
+        const tempat_lahir = document.getElementById('tempat_lahir');
+        const tanggal_lahir = document.getElementById('tanggal_lahir');
+        const kelas = document.getElementById('kelas');
         const select = document.getElementById('level');
         select.addEventListener('change', function() {
         console.log(select.value);
-        if (select.value=='Konsumen') {
-            tahun_ajaran.style.display = none;
+        if (select.value=='Pembeli') {
+            tahun_ajaran.style.display = 'none';
+            tempat_lahir.style.display = 'none';
+            tanggal_lahir.style.display = 'none';
+            kelas.style.display = 'none';
+        } else {
+            tahun_ajaran.style.display = 'block';
+            tempat_lahir.style.display = 'block';
+            tanggal_lahir.style.display = 'block';
+            kelas.style.display = 'block';
         }
         })
     </script>

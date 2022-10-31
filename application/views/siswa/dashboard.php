@@ -7,14 +7,19 @@
           <div class="card-body">
             <h5 class="card-title text-primary">Selamat Datang <?php echo $this->session->userdata('nama'); ?> 🎉</h5>
             <p class="mb-4">Tambahkan produk ke tokomu. Gunakan menu affiliasi untuk memulai menjual produk.</p>
-            <a href="<?php echo site_url('affiliate/store/'.$this->session->userdata('username')) ?>" class="btn btn-sm btn-primary" target="_blank">Kunjungi Toko Affiliate</a>
-            <a href="javascript:;" class="btn btn-sm btn-outline-primary">Copy Link Affiliate</a>
+            <a href="<?php echo site_url('affiliate/store/'.$this->session->userdata('username')) ?>" class="btn btn-md btn-primary" target="_blank">Kunjungi Toko Affiliate</a>
+            <div class="row" style="margin-top: 20px;">
+              <div class="input-group">
+                <input type="text" class="form-control" id="myInput" value="<?php echo site_url('affiliate/store/'.$this->session->userdata('username')) ?>">
+                <button onclick="myFunction()" class="btn btn-outline-primary" type="button" id="button-addon2">Copy Link</button>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-sm-5 text-center text-sm-left">
-            <div class="card-body pb-0 px-0 px-md-4">
-              <img src="<?php echo site_url('assets/vendor/sneat');?>/assets/img/illustrations/man-with-laptop-light.png" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.png" height="140">
-            </div>
+          <div class="card-body pb-0 px-0 px-md-4">
+            <img src="<?php echo site_url('assets/vendor/sneat');?>/assets/img/illustrations/man-with-laptop-light.png" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.png" height="140">
+          </div>
         </div>
       </div>
     </div>
@@ -71,3 +76,19 @@
   </div>
 </div>
 </div>
+<script>
+function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("myInput");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+
+  // Alert the copied text
+  alert("Copied the text: " + copyText.value);
+} 
+</script>

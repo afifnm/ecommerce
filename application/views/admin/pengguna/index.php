@@ -72,6 +72,15 @@ function confirmDialog() {
           <input type="password"class="form-control" placeholder="Password" name="password" required>
         </div>
       </div>
+      <div class="col mb-3">
+        <div class="mb-3">
+          <label class="form-label">Level</label>
+          <select class="form-select form-select-lg" name="level">
+            <option value="Siswa">Siswa</option>
+            <option value="Konsumen">Konsumen</option>
+            </select>
+        </div>
+      </div>
       <div class="row">
         <div class="col mb-3">
           <label for="nameBackdrop" class="form-label">Nama Lengkap</label>

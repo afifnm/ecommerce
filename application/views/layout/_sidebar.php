@@ -74,5 +74,14 @@ $kategori_produk = $this->db->get()->result_array();
       </ul>
     </li>
   </ul>
+  <?php } elseif ($this->session->userdata('level') == "Pembeli"){ ?>
+  <ul class="menu-inner py-1">
+    <li class="menu-item <?php echo activate_menu('home');  ?>">
+      <a href="<?php echo site_url('pembeli/home');?>" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Analytics">Dashboard</div>
+      </a>
+    </li>
+  </ul>
   <?php }   ?>
 </aside>

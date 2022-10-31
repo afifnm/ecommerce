@@ -22,6 +22,8 @@ class Affiliate extends MY_Controller
             'nama_kategori'         => '',
             'username'              => $username
         );
+        $userdata = array('affiliate' => $username);
+        $this->session->set_userdata($userdata);
         $this->db->where('active',1);
         $this->db->join('affiliasi c', 'c.kode_produk = a.kode_produk','left');
         $this->db->where('c.username',$username);
