@@ -50,7 +50,7 @@ class Affiliate extends MY_Controller
         $this->pagination->initialize($config);
         $data['halaman'] = $this->pagination->create_links();
         $data['query'] = $this->Affiliate_model->ambil_produk($username, $config['per_page'], $id);
-        $this->load->view('affiliate/products',array_merge($data));
+        $this->load->view('frontend/products_af',array_merge($data));
     }
     public function kategori($username,$id_kategori,$id=NULL){
         $nama_kategori = $this->CRUD_model->get_kategori($id_kategori);
@@ -92,7 +92,7 @@ class Affiliate extends MY_Controller
         $this->pagination->initialize($config);
         $data['halaman'] = $this->pagination->create_links();
         $data['query'] = $this->Affiliate_model->ambil_produk_kategori($username, $id_kategori,$config['per_page'], $id);
-        $this->load->view('affiliate/products',array_merge($data));
+        $this->load->view('frontend/products_af',array_merge($data));
     }
     public function pencarian($username,$keyword,$id=NULL){
         $site = $this->Konfigurasi_model->listing();
@@ -131,7 +131,7 @@ class Affiliate extends MY_Controller
         $this->pagination->initialize($config);
         $data['halaman'] = $this->pagination->create_links();
         $data['query'] = $this->Affiliate_model->ambil_pencarian($username, $config['per_page'], $id,$keyword);
-        $this->load->view('affiliate/products',array_merge($data));
+        $this->load->view('fronted/products_af',array_merge($data));
     }
     public function product($id){
         $nama = $this->CRUD_model->get_nama($id);
@@ -147,6 +147,6 @@ class Affiliate extends MY_Controller
         $this->db->where('a.kode_produk',$id);
         $data2 = $this->db->get()->result_array();
         $data2 = array('products' => $data2);
-        $this->load->view('affiliate/product',array_merge($data,$data2));
+        $this->load->view('frontend/product_af',array_merge($data,$data2));
     } 
 }

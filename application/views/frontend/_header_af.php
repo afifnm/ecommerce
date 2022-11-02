@@ -1,5 +1,5 @@
 <section class="banner_area">
-    <div class="banner_inner d-flex align-items-center">
+    <div class="banner_inner d-flex align-items-center" style="background: #EDF1FF;">
         <div class="container">
             <div class="banner_content d-md-flex justify-content-between align-items-center">
                 <div class="mb-3 mb-md-0">

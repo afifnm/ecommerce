@@ -9,7 +9,7 @@
   </head>
   <body>
     <?php require_once('_navigasi.php'); ?>
-    <?php require_once('_header.php'); ?>
+    <?php require_once('_header_af.php'); ?>
     <section class="cat_product_area" style="padding-top: 20px; padding-bottom:120px;">
       <div class="container">
         <div class="row flex-row-reverse">
@@ -63,7 +63,7 @@
               </div>
             </div>
           </div>
-          <?php require_once('_sidebar.php'); ?>
+          <?php require_once('_sidebar_af.php'); ?>
         </div>
       </div>
     </section>

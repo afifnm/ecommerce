@@ -5,9 +5,30 @@
   <div class="col-md-12">
     <div class="card mb-4">
       <div class="card-body">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#backDropModal">
-          <span class="tf-icons bx bx-message-add"></span>&nbsp; Tambah Produk
-        </button>
+        <div class="row">
+          <div class="col-md-4">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#backDropModal">
+              <span class="tf-icons bx bx-message-add"></span>&nbsp; Tambah Produk
+            </button>
+          </div>
+          <div class="col-md-8" style="text-align:right;">
+            <a href="#" class="btn btn-sm btn-danger">
+              <span class="tf-icons bx bx-trash-alt"></span> hapus
+            </a>
+            <a href="#" class="btn btn-sm btn-warning" >
+              <span class="tf-icons bx bx-edit-alt"></span> editdata
+            </a>     
+            <a href="#" class="btn btn-sm btn-primary" >
+              <span class="tf-icons bx bx-image-add"></span> foto
+            </a>     
+            <a href="#" class="btn btn-sm btn-success" >
+              <span class="tf-icons bx bx-checkbox-checked"></span> tampilkan
+            </a> 
+            <a href="#" class="btn btn-sm btn-secondary" >
+              <span class="tf-icons bx bx-checkbox"></span> sembunyikan
+            </a> 
+          </div>   
+        </div>   
       </div>
       <hr class="my-0">
       <div class="card-body">
@@ -49,7 +70,16 @@
                 </a>     
                 <a href="<?php echo site_url('admin/produk/foto/'.$user['id_kategori'].'/'.$user['kode_produk']);?>" class="btn btn-sm btn-primary" >
                   <span class="tf-icons bx bx-image-add"></span>
-                </a>      
+                </a>     
+                <?php if ($user['active']==0) { ?>
+                  <a href="<?php echo site_url('admin/produk/active/'.$user['id_kategori'].'/'.$user['kode_produk']);?>" class="btn btn-sm btn-success" >
+                    <span class="tf-icons bx bx-checkbox-checked"></span>
+                  </a> 
+                <?php } else { ?>
+                  <a href="<?php echo site_url('admin/produk/non_active/'.$user['id_kategori'].'/'.$user['kode_produk']);?>" class="btn btn-sm btn-secondary" >
+                    <span class="tf-icons bx bx-checkbox"></span>
+                  </a> 
+                <?php }  ?> 
               </td>
             </tr>
             <?php $no++; } ?>

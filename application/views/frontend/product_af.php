@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <title><?php echo $title; ?></title>
-    <?php require_once('_css.php'); ?>
+    <?php require_once('../frontend/_css.php'); ?>
     <style>
       .s_product_text p{
         margin: 0;
@@ -15,7 +15,7 @@
     </style>
   </head>
   <body>
-    <?php require_once('_navigasi.php'); ?>
+    <?php require_once('../frontend/_navigasi.php'); ?>
     <?php require_once('_header.php'); ?>
     <?php foreach ($products as $product) { ?>
           <!--================Single Product Area =================-->
@@ -73,8 +73,8 @@
     <!--================End Single Product Area =================-->
     <br>
     <?php } ?> 
-    <?php require_once('_footer.php'); ?>
-    <?php require_once('_js.php'); ?>
+    <?php require_once('../frontend/_footer.php'); ?>
+    <?php require_once('../frontend/_js.php'); ?>
     <script>
       var cari = document.getElementById('cari');
       cari.addEventListener("keydown", function(event) {
