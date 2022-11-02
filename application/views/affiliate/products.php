@@ -26,12 +26,12 @@
               <div class="row">
                 <?php foreach ($query as $produk) {?>
                   <?php if ($this->CRUD_model->foto_produk_1($produk->kode_produk)!=NULL) {?>
-                  <div class="col-lg-4 col-md-6 col-xs-6">
+                  <div class="col-lg-3 col-md-4 col-6">
                     <div class="single-product">
                       <div class="product-img">
                         <?php foreach ($this->CRUD_model->foto_produk_1($produk->kode_produk) as $foto) { ?>
                         <img class="card-img" src="<?php echo site_url('assets/upload/images/produk/'.$foto['namafile']);?>"
-                        style="width: 260px; height: 180px;">
+                        style="height: 170px;">
                         <?php } ?>
                         <div class="p_icon">
                           <a href="<?php echo site_url('home/product/'.$produk->kode_produk) ?>">

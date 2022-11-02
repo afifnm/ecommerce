@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2022 at 09:33 AM
+-- Generation Time: Nov 02, 2022 at 08:19 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -77,7 +77,12 @@ INSERT INTO `foto` (`id_foto`, `kode_produk`, `namafile`) VALUES
 (41, '202210210401452', '20221021090211.jpg'),
 (42, '202210210401452', '20221021090219.jpg'),
 (43, '202210210402302', '20221021090317.jpg'),
-(44, '202210210402092', '20221021090648.jpg');
+(44, '202210210402092', '20221021090648.jpg'),
+(47, '202211020805362', '20221102140627.jpg'),
+(48, '202211020808112', '20221102140827.jpg'),
+(49, '202211020809412', '20221102141013.jpg'),
+(50, '202211020813452', '20221102141425.jpg'),
+(51, '202211020815142', '20221102141523.jpg');
 
 -- --------------------------------------------------------
 
@@ -146,10 +151,11 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `kode_produk`, `nama`, `deskripsi`, `id_kategori`, `active`, `tanggal`, `harga`, `stok`, `username`) VALUES
-(13, '202210210356182', 'Es Boba', '<p><em><strong><span style=\"font-size: 14pt;\">Es yang sempat viral di Indonesia karena menyegarkan di kala kamu haus, wehehehehe.</span></strong></em></p>', '6', 1, '2022-10-21 03:56:18', '10000', 15, 'root'),
-(14, '202210210356432', 'BAKSO ACI(BACI)', '', '6', 1, '2022-10-21 03:56:43', '12000', 100, 'root'),
-(16, '202210210359112', 'klepon ijo', '<p>klepon ijo</p>\r\n<p>klepon ijo</p>\r\n<p>klepon ijo</p>\r\n<p>klepon ijo</p>\r\n<p>klepon ijo</p>\r\n<p>klepon ijo</p>', '6', 1, '2022-10-21 03:59:11', '10000', 50, 'root'),
-(19, '202210210401452', 'udang keju', '<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>udang keju</p>\r\n<p>&nbsp;</p>', '6', 1, '2022-10-21 04:01:45', '8000', 1, 'root');
+(27, '202211020805362', 'ABC Sardines Chili', '', '6', 1, '2022-11-02 08:05:36', '7355', 50, 'root'),
+(28, '202211020808112', 'Agarasa Coklat', '', '6', 1, '2022-11-02 08:08:11', '4400', 50, 'root'),
+(29, '202211020809412', 'Agarasa Melon', '', '6', 1, '2022-11-02 08:09:41', '3500', 50, 'root'),
+(30, '202211020813452', 'Aqua 1500 Ml', '', '6', 1, '2022-11-02 08:13:45', '4600', 50, 'root'),
+(31, '202211020815142', 'Aqua 330 Ml', '', '6', 1, '2022-11-02 08:15:14', '1700', 50, 'root');
 
 -- --------------------------------------------------------
 
@@ -241,7 +247,7 @@ ALTER TABLE `affiliasi`
 -- AUTO_INCREMENT for table `foto`
 --
 ALTER TABLE `foto`
-  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -259,7 +265,7 @@ ALTER TABLE `konfigurasi`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `user`
