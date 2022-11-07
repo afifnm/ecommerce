@@ -15,7 +15,7 @@ class Auth_model extends CI_Model
       date_default_timezone_set('ASIA/JAKARTA'); 
       $data = array(
         'username' => $this->input->post('username'),
-        'foto' => $this->input->post('username').jpg,
+        'foto' => $this->input->post('username').'jpg',
         'password' => get_hash($this->input->post('password')),
         'level' => $this->input->post('level'),
         'nama' => $this->input->post('nama'),
