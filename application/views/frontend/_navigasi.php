@@ -52,9 +52,11 @@ $kategori_produk = $this->db->get()->result_array();
             <div class="col-lg-5 pr-0">
                 <ul class="nav navbar-nav navbar-right right_nav pull-right">
                 <li class="nav-item">
-                    <a href="#" class="icons">
-                    <i class="ti-shopping-cart"></i> Keranjang
-                    </a>
+                    <?php if ($this->session->userdata('level')=='Pembeli') { ?>
+                        <a href="<?php echo site_url('cart') ?>" class="icons">
+                        <i class="ti-shopping-cart"></i> Keranjang
+                        </a>
+                    <?php }  ?>
                 </li>
                 <li class="nav-item">
                     <?php if ($this->session->userdata('level')=='Siswa') { ?>

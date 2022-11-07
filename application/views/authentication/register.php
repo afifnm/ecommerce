@@ -66,10 +66,7 @@
                   <label class="form-label">Nama Lengkap</label>
                   <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" required>
                 </div> 
-                <div class="mb-3">
-                  <label class="form-label">Email</label>
-                  <input type="email" class="form-control" name="email" placeholder="Email">
-                </div>
+                <input type="hidden" name="email" value="-">
                 <div class="mb-3" id="tempat_lahir">
                   <label class="form-label">Tempat Lahir</label>
                   <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir">
