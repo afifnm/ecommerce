@@ -6,17 +6,6 @@
       <div class="card-body">
         <div class="row">
           <div class="col mb-3">
-            <label for="nameBackdrop" class="form-label">Tampilkan Produk</label>
-            <select name="active" class="form-control">
-              <option value="0" <?php if($u->active=='0'){ echo "selected";} ?> >Sembunyikan</option> 
-              <option value="1" <?php if($u->active=='1'){ echo "selected";} ?> >Tampilkan</option>   
-            </select>
-          </div>
-          <div class="col mb-3">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col mb-3">
             <label for="nameBackdrop" class="form-label">Nama Produk</label>
             <input type="text"class="form-control" name="nama" value="<?php echo $u->nama; ?>">
             <input type="hidden" name="id" value="<?php echo $u->id_produk; ?>">

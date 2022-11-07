@@ -192,7 +192,6 @@ class Produk extends MY_Controller{
             'nama' => $this->input->post('nama'),
             'id_kategori' => $this->input->post('kategori'),
             'harga' => $this->input->post('harga'),
-            'active' => $this->input->post('active'),
             'deskripsi' => $this->input->post('deskripsi'),
          ); 
         $where = array(
@@ -206,5 +205,29 @@ class Produk extends MY_Controller{
             </div>
                 ');
         redirect('admin/produk/kategori/'.$this->input->post('kategori'));
+    }
+    public function active($id_kategori,$kode_produk){
+        $data = array('active' => 1); 
+        $where = array('kode_produk' => $kode_produk);
+        $data = $this->CRUD_model->Update('produk', $data, $where);
+        $this->session->set_flashdata('alert', '
+            <div class="alert alert-primary alert-dismissible" role="alert">
+            Produk yang dipilih telah ditampilkan.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+                ');
+        redirect('admin/produk/kategori/'.$id_kategori);
+    }
+    public function non_active($id_kategori,$kode_produk){
+        $data = array('active' => 0); 
+        $where = array('kode_produk' => $kode_produk);
+        $data = $this->CRUD_model->Update('produk', $data, $where);
+        $this->session->set_flashdata('alert', '
+            <div class="alert alert-primary alert-dismissible" role="alert">
+            Produk yang dipilih telah disembunyikan.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+                ');
+        redirect('admin/produk/kategori/'.$id_kategori);
     }
 }
