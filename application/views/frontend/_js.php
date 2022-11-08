@@ -13,3 +13,6 @@
     <script src="<?php echo base_url('assets/vendor/eiser/');?>vendors/counter-up/jquery.waypoints.min.js"></script>
     <script src="<?php echo base_url('assets/vendor/eiser/');?>vendors/counter-up/jquery.counterup.js"></script>
     <script src="<?php echo base_url('assets/vendor/eiser/');?>js/theme.js"></script>
+    <script>
+        $('#myalert').delay('slow').slideDown('slow').delay(4000).slideUp(600);
+    </script>

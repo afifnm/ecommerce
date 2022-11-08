@@ -10,6 +10,7 @@
   <body>
     <?php require_once('_navigasi.php'); ?>
     <?php require_once('_header.php'); ?>
+    
     <section class="cat_product_area" style="padding-top: 20px; padding-bottom:120px;">
       <div class="container">
         <div class="row flex-row-reverse">

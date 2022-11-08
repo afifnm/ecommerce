@@ -72,7 +72,7 @@ $kategori_produk = $this->db->get()->result_array();
                         <i class="ti-user" aria-hidden="true"></i> <?php echo $this->session->userdata('nama'); ?>
                         </a>
                     <?php } else { ?>
-                        <a href="auth/login" class="icons">
+                        <a href="<?php echo site_url('auth/login') ?>" class="icons">
                         <i class="ti-user" aria-hidden="true"></i> Login
                         </a>
                     <?php }  ?>

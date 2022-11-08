@@ -17,6 +17,9 @@
   <body>
     <?php require_once('_navigasi.php'); ?>
     <?php require_once('_header.php'); ?>
+    <div id="myalert"> 
+      <?php echo $this->session->flashdata('alert', true)?>
+    </div> 
     <?php foreach ($products as $product) { ?>
           <!--================Single Product Area =================-->
     <div class="product_image_area"  style="margin-bottom: 50px ; padding-top: 50px;">
@@ -58,13 +61,16 @@
                 </li>
               </ul>
                 <?php echo $product['deskripsi']; ?>
-              <form method="post" action="<?php echo site_url('home/keranjang');?>">
+              <form method="post" action="<?php echo site_url('cart/simpan');?>">
                 <div class="product_count">
                   <label for="qty">Jumlah:</label>
-                  <input type="number" name="jumlah" min="1" maxlength="12" value="1" title="Quantity:" class="input-text qty"/>
+                  <input type="number" name="jumlah" min="1" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+                  <input type="hidden" name="kode_produk" value="<?php echo $product['kode_produk'] ?>">
+                  <input type="hidden" name="pembeli" value="<?php echo $this->session->userdata('username') ?>">
+                  <input type="hidden" name="penjual" value="Admin">
                 </div>
                 <div class="card_area"> 
-                  <button class="main_btn" type="submit">Masukan Keranjang</button>
+                  <button class="main_btn" type="submit" <?php if($product['stok']<1){ echo "disabled"; } ?>>Masukan Keranjang</button>
                 </div>
               </form>
             </div>
