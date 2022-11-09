@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2022 at 08:19 AM
+-- Generation Time: Nov 09, 2022 at 08:53 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -40,6 +40,21 @@ CREATE TABLE `affiliasi` (
 INSERT INTO `affiliasi` (`id_affiliasi`, `kode_produk`, `username`) VALUES
 (4, '202210210359112', 'K3514003'),
 (5, '202210210356432', 'K3514003');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id_cart` int(11) NOT NULL,
+  `kode_transaksi` varchar(70) NOT NULL,
+  `kode_produk` varchar(50) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `pembeli` varchar(50) NOT NULL,
+  `penjual` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -160,6 +175,44 @@ INSERT INTO `produk` (`id_produk`, `kode_produk`, `nama`, `deskripsi`, `id_kateg
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `temp_cart`
+--
+
+CREATE TABLE `temp_cart` (
+  `id_temp_cart` int(11) NOT NULL,
+  `kode_produk` varchar(50) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `pembeli` varchar(50) NOT NULL,
+  `penjual` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `temp_cart`
+--
+
+INSERT INTO `temp_cart` (`id_temp_cart`, `kode_produk`, `jumlah`, `pembeli`, `penjual`) VALUES
+(12, '202211020809412', 5, '201', 'Admin'),
+(13, '202211020813452', 2, '201', 'Admin'),
+(14, '202211020805362', 5, '201', 'Admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaksi`
+--
+
+CREATE TABLE `transaksi` (
+  `id_transaksi` int(11) NOT NULL,
+  `kode_transaksi` varchar(70) NOT NULL,
+  `tanggal_beli` datetime NOT NULL,
+  `tanggal_selesai` datetime NOT NULL,
+  `pembayaran` varchar(50) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -191,7 +244,8 @@ INSERT INTO `user` (`id`, `username`, `password`, `level`, `nama`, `store`, `tem
 (5, 'K3514003', '$2y$05$E6cvam62HaVPMszZTjWMoe48UBVmQMov05GvIkBg5Cjp2GWT7E9/e', 'Siswa', 'Afif Nuruddin Maisaroh', '', 'Sukoharjo', '1996-06-08', 'Suruh RT 02 RW 01, Kayuapak, Polokarto, Sukoharjo, 57555', 'XI RB', '2011', 'afifnuruddinmaisaroh@gmail.com', '089673333318', 'K3514003.jpg', 1, '2022-10-30 12:44:59'),
 (6, '101', '$2y$05$2MSOn7kuG2a.v9RkqAP/Z.wDSpw2Nr3YYhYR8zs8eP.FQCzKL987S', 'Siswa', 'Sutarmadi', NULL, 'asasd', '2022-09-27', 'asdasd', 'XRA', '2010', '101@asdas.com', '1231231', '101.jpg', 1, '2022-10-31 09:27:41'),
 (8, '102', '$2y$05$C462u/qPNgxInqHKCxEh9.UKRdRQ021oIwnsWT0lvnduThi.bZfzS', 'Siswa', 'Sumanto', NULL, '', '0000-00-00', '', '', '', '', '', '102.jpg', 1, '2022-10-31 09:27:49'),
-(10, '201', '$2y$05$vAbwICeFZfOjy2JTxtBJG.L00d.hhjHAtwjEYI/Dkao9NTFq7vQoO', 'Pembeli', 'Nuruddin, M.Pd', NULL, '', '0000-00-00', 'Suruh RT 02/01', '', '', 'afifnuruddinmaisaroh@gmail.com', '089673333318', '201jpg', 1, '2022-10-31 10:57:57');
+(10, '201', '$2y$05$vAbwICeFZfOjy2JTxtBJG.L00d.hhjHAtwjEYI/Dkao9NTFq7vQoO', 'Pembeli', 'Nuruddin, M.Pd', NULL, '', '0000-00-00', 'Suruh RT 02/01', '', '', 'afifnuruddinmaisaroh@gmail.com', '089673333318', '201jpg', 1, '2022-10-31 10:57:57'),
+(11, '202', '$2y$05$xjqtH8B0UDZyYQeBysLfDegCESdKPszH/B.XEPDEPI6rrLWfz0GF6', 'Pembeli', 'Andi Windu', NULL, '', '0000-00-00', 'Karanganyar', '', '', '-', '', '202jpg', 1, '2022-11-07 13:31:10');
 
 --
 -- Indexes for dumped tables
@@ -202,6 +256,12 @@ INSERT INTO `user` (`id`, `username`, `password`, `level`, `nama`, `store`, `tem
 --
 ALTER TABLE `affiliasi`
   ADD PRIMARY KEY (`id_affiliasi`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id_cart`);
 
 --
 -- Indexes for table `foto`
@@ -228,6 +288,18 @@ ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
+-- Indexes for table `temp_cart`
+--
+ALTER TABLE `temp_cart`
+  ADD PRIMARY KEY (`id_temp_cart`);
+
+--
+-- Indexes for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id_transaksi`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -242,6 +314,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `affiliasi`
   MODIFY `id_affiliasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `foto`
@@ -268,10 +346,22 @@ ALTER TABLE `produk`
   MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
+-- AUTO_INCREMENT for table `temp_cart`
+--
+ALTER TABLE `temp_cart`
+  MODIFY `id_temp_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

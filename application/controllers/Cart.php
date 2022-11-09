@@ -79,4 +79,44 @@ class Cart extends MY_Controller
         ');
         redirect('cart');    
     }
+    public function checkout(){
+        date_default_timezone_set("Asia/Jakarta");
+        if ($this->session->userdata('level')!='Pembeli') {
+            $this->session->set_flashdata('alert', '
+            <div class="alert alert-primary alert-dismissible" role="alert">
+            Silahkan login terlebih dahulu untuk menambah produk ke keranjang.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+                ');
+            redirect('auth/login');   
+        } else {
+            $kode_transaksi = date("YmdHis").$this->session->userdata('id');
+            $site = $this->Konfigurasi_model->listing();
+            $data = array(
+                'title'                 => 'Keranjang Belanja | '.$site['nama_website'],
+                'site'                  => $site,
+                'nama_kategori'         => 'Keranjang Belanja'
+            );
+            $this->db->select('*')->from('temp_cart');
+            $this->db->where('pembeli',$this->session->userdata('username'));
+            $carts = $this->db->get()->result_array();
+            foreach ($carts as $cart) {
+                $data = array(
+                    'jumlah' => $cart['jumlah'],
+                    'kode_produk' => $cart['kode_produk'],
+                    'pembeli' => $cart['pembeli'],
+                    'penjual' => $cart['penjual'],
+                    'kode_transaksi' => $kode_transaksi
+                );  
+                $this->CRUD_model->Insert('cart', $data);
+            }
+            $data = array(
+                'tanggal_beli' => date('Y-m-d H:i:s'),
+                'pembayaran' => $this->input->post('pembayaran'),
+                'status' => 0,
+                'kode_transaksi' => $kode_transaksi
+            );  
+            $this->CRUD_model->Insert('transaksi', $data);
+        }
+    }
 }

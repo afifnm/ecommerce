@@ -19,7 +19,7 @@ class Produk extends MY_Controller{
             'title'                 => 'Produk | '.$site['nama_website'],
             'site'                  => $site,
             'nav'                   => '
-                    <a class="navigasi-link">Produk</a>
+                <a class="navigasi-link">Produk</a>
             '
         );
         $this->db->select('a.*,b.kategori')->from('produk a');

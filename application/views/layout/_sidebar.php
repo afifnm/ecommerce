@@ -82,6 +82,12 @@ $kategori_produk = $this->db->get()->result_array();
         <div data-i18n="Analytics">Dashboard</div>
       </a>
     </li>
+    <li class="menu-item <?php echo activate_menu('order');  ?>">
+      <a href="<?php echo site_url('pembeli/order');?>" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-cart"></i>
+        <div data-i18n="Analytics">Pesanan Saya</div>
+      </a>
+    </li>
   </ul>
   <?php }   ?>
 </aside>

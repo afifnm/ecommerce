@@ -13,6 +13,18 @@
     <div id="myalert"> 
       <?php echo $this->session->flashdata('alert', true)?>
     </div> 
+    <?php if ($cart==NULL) { ?>
+    <section class="cart_area">
+      <div class="container">
+        <div class="cart_inner">
+          <div class="tracking_box_inner">
+              <p>Keranjang belanja kosong, silahkan pergi ke halaman utama dan mulai berbelanja ^^.</p>
+                <a class="main_btn" href="<?php echo site_url('/') ?>">Mulai Berbelanja</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <?php } else { ?>
     <section class="cart_area">
       <div class="container">
         <div class="cart_inner">
@@ -59,16 +71,34 @@
                   <td></td>
                   <td><h5>Subtotal</h5></td>
                   <td><h5>Rp. <?php echo number_format($sum,0,",","."); ?></h5></td>
+                  <td></td>
                 </tr>
-                <tr class="bottom_button">
-                  <td colspan="5" align="right"><a class="main_btn" href="#">Lanjutkan belanja</a></td>
-                </tr>
+                <form method="post" action="<?php echo site_url('cart/checkout') ?>">
+                  <tr>
+                    <td colspan="3"></td>
+                    <td>
+                      Pembayaran
+                    </td>
+                    <td>
+                      <select name="pembayaran">
+                        <option value="Tunai">Tunai</option>
+                        <option value="Transfer">Transfer</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr class="bottom_button">
+                    <td colspan="5" align="right">
+                      <button class="main_btn" type="submit">Lanjutkan belanja</button>
+                    </td>
+                  </tr>
+                </form>
               </tbody>
             </table>
           </div>
         </div>
       </div>
     </section>
+    <?php } ?>
     <?php require_once('_footer.php'); ?>
     <?php require_once('_js.php'); ?>
   </body>
