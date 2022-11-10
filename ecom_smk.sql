@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2022 at 08:53 AM
+-- Generation Time: Nov 10, 2022 at 09:55 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -55,6 +55,16 @@ CREATE TABLE `cart` (
   `pembeli` varchar(50) NOT NULL,
   `penjual` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id_cart`, `kode_transaksi`, `kode_produk`, `jumlah`, `pembeli`, `penjual`) VALUES
+(16, '2022111010183410', '202211020813452', 3, '201', 'Admin'),
+(17, '2022111010183410', '202211020808112', 14, '201', 'Admin'),
+(18, '2022111013215610', '202211020815142', 1, '201', 'Admin'),
+(19, '2022111013215610', '202211020808112', 1, '201', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -191,9 +201,7 @@ CREATE TABLE `temp_cart` (
 --
 
 INSERT INTO `temp_cart` (`id_temp_cart`, `kode_produk`, `jumlah`, `pembeli`, `penjual`) VALUES
-(12, '202211020809412', 5, '201', 'Admin'),
-(13, '202211020813452', 2, '201', 'Admin'),
-(14, '202211020805362', 5, '201', 'Admin');
+(19, '202211020815142', 1, '201', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -207,8 +215,18 @@ CREATE TABLE `transaksi` (
   `tanggal_beli` datetime NOT NULL,
   `tanggal_selesai` datetime NOT NULL,
   `pembayaran` varchar(50) NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL,
+  `pembeli` varchar(50) NOT NULL,
+  `penjual` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_transaksi`, `kode_transaksi`, `tanggal_beli`, `tanggal_selesai`, `pembayaran`, `status`, `pembeli`, `penjual`) VALUES
+(3, '2022111010183410', '2022-11-10 10:18:34', '0000-00-00 00:00:00', 'Tunai', 0, '201', 'Admin'),
+(4, '2022111013215610', '2022-11-10 13:21:56', '0000-00-00 00:00:00', 'Tunai', 1, '201', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -244,7 +262,7 @@ INSERT INTO `user` (`id`, `username`, `password`, `level`, `nama`, `store`, `tem
 (5, 'K3514003', '$2y$05$E6cvam62HaVPMszZTjWMoe48UBVmQMov05GvIkBg5Cjp2GWT7E9/e', 'Siswa', 'Afif Nuruddin Maisaroh', '', 'Sukoharjo', '1996-06-08', 'Suruh RT 02 RW 01, Kayuapak, Polokarto, Sukoharjo, 57555', 'XI RB', '2011', 'afifnuruddinmaisaroh@gmail.com', '089673333318', 'K3514003.jpg', 1, '2022-10-30 12:44:59'),
 (6, '101', '$2y$05$2MSOn7kuG2a.v9RkqAP/Z.wDSpw2Nr3YYhYR8zs8eP.FQCzKL987S', 'Siswa', 'Sutarmadi', NULL, 'asasd', '2022-09-27', 'asdasd', 'XRA', '2010', '101@asdas.com', '1231231', '101.jpg', 1, '2022-10-31 09:27:41'),
 (8, '102', '$2y$05$C462u/qPNgxInqHKCxEh9.UKRdRQ021oIwnsWT0lvnduThi.bZfzS', 'Siswa', 'Sumanto', NULL, '', '0000-00-00', '', '', '', '', '', '102.jpg', 1, '2022-10-31 09:27:49'),
-(10, '201', '$2y$05$vAbwICeFZfOjy2JTxtBJG.L00d.hhjHAtwjEYI/Dkao9NTFq7vQoO', 'Pembeli', 'Nuruddin, M.Pd', NULL, '', '0000-00-00', 'Suruh RT 02/01', '', '', 'afifnuruddinmaisaroh@gmail.com', '089673333318', '201jpg', 1, '2022-10-31 10:57:57'),
+(10, '201', '$2y$05$vAbwICeFZfOjy2JTxtBJG.L00d.hhjHAtwjEYI/Dkao9NTFq7vQoO', 'Pembeli', 'Nuruddin', NULL, '', '0000-00-00', 'Suruh Kayuapak RT 02/01', '', '', 'afifnuruddinmaisaroh@gmail.com', '6289673333318', '201jpg', 1, '2022-11-10 14:14:38'),
 (11, '202', '$2y$05$xjqtH8B0UDZyYQeBysLfDegCESdKPszH/B.XEPDEPI6rrLWfz0GF6', 'Pembeli', 'Andi Windu', NULL, '', '0000-00-00', 'Karanganyar', '', '', '-', '', '202jpg', 1, '2022-11-07 13:31:10');
 
 --
@@ -319,7 +337,7 @@ ALTER TABLE `affiliasi`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `foto`
@@ -349,13 +367,13 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `temp_cart`
 --
 ALTER TABLE `temp_cart`
-  MODIFY `id_temp_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_temp_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
