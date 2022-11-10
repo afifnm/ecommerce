@@ -72,4 +72,19 @@ class CRUD_model extends CI_Model{
         $data = $this->db->get('produk', $num, $offset);
         return $data->result();
      }
+     public function sum_pesanan($kode_transaksi){
+        $this->db->select('*')->from('cart a');
+        $this->db->join('produk b', 'b.kode_produk = a.kode_produk','left');
+        $this->db->where('kode_transaksi',$kode_transaksi);
+        $carts = $this->db->get()->result_array();
+        if($carts==NULL){
+            return 0;
+        } else {
+            $sum = 0;
+            foreach ($carts as $cart) {
+                $sum = $sum+$cart['jumlah']*$cart['harga'];
+            }
+            return $sum;
+        }
+     }
 }

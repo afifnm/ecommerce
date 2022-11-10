@@ -70,7 +70,9 @@ class Kategori extends MY_Controller
                     &nbsp; / &nbsp; <b> <i>Edit Kategori Produk</i></b>
             '
         );
-        $where = array('id_kategori' => $id);
+        $where = array(
+            'id_kategori' => $id
+         );
         $data2['kategori'] = $this->CRUD_model->edit_data($where,'kategori')->result();
         $this->template->load('layout/template', 'admin/kategori_edit', array_merge($data, $data2));
     }

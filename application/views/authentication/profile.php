@@ -9,14 +9,14 @@
           <form class="form-horizontal" action="<?php echo base_url('auth/updateProfile') ?>" method="POST" enctype="multipart/form-data">
             <div class="row">
               <div class="mb-3 col-md-6">
-                <label for="firstName" class="form-label">NIS/NIP</label>
+                <label for="firstName" class="form-label">Username/NIS/NIP</label>
                 <input type="text" class="form-control" placeholder="Username" name="username" value="<?php echo $this->session->userdata('username'); ?>" readonly>
               </div>
               <div class="mb-3 col-md-6">
                 <label for="lastName" class="form-label">Nama Lengkap</label>
                 <input type="text" class="form-control" placeholder="Nama Lengkap" name="nama" value="<?php echo $this->session->userdata('nama'); ?>">
               </div>
-              <div class="mb-3 col-md-6">
+              <div class="mb-3 col-md-6" <?php if ( $this->session->userdata('level')=='Pembeli') { echo 'hidden'; } ?> >
                 <label for="email" class="form-label">E-mail</label>
                 <input type="email" class="form-control" placeholder="Email" name="email" value="<?php echo $this->session->userdata('email'); ?>">
               </div>
@@ -27,19 +27,19 @@
                   <input type="text" class="form-control" placeholder="Telp" name="no_hp" value="<?php echo $this->session->userdata('no_hp'); ?>">
                 </div>
               </div>
-              <div class="mb-3 col-md-6">
-                <label for="address" class="form-label">Tempat Lahir</label>
+              <div class="mb-3 col-md-6" <?php if ( $this->session->userdata('level')=='Pembeli') { echo 'hidden'; } ?>>
+                <label for="address" class="form-label" >Tempat Lahir</label>
                 <input type="text" class="form-control" placeholder="Tempat Lahir" name="tempat_lahir" value="<?php echo $this->session->userdata('tempat_lahir'); ?>">
               </div>
-              <div class="mb-3 col-md-6">
+              <div class="mb-3 col-md-6" <?php if ( $this->session->userdata('level')=='Pembeli') { echo 'hidden'; } ?>>
                 <label for="state" class="form-label">Tanggal Lahir</label>
                 <input type="date" class="form-control" placeholder="Tempat Lahir" name="tanggal_lahir" value="<?php echo $this->session->userdata('tanggal_lahir'); ?>">
               </div>
-              <div class="mb-3 col-md-6">
+              <div class="mb-3 col-md-6" <?php if ( $this->session->userdata('level')=='Pembeli') { echo 'hidden'; } ?>>
                 <label for="address" class="form-label">Kelas</label>
                 <input type="text" class="form-control" placeholder="Kelas" name="kelas" value="<?php echo $this->session->userdata('kelas'); ?>">
               </div>
-              <div class="mb-3 col-md-6">
+              <div class="mb-3 col-md-6" <?php if ( $this->session->userdata('level')=='Pembeli') { echo 'hidden'; } ?>>
                 <label for="state" class="form-label">Tahun Masuk</label>
                 <input type="number" class="form-control" placeholder="Tahun Masuk" name="tahun_ajaran" value="<?php echo $this->session->userdata('tahun_ajaran'); ?>">
               </div>

@@ -11,6 +11,9 @@ class Cart extends MY_Controller
         $this->load->helper('url');
         $this->load->library('pagination');
         $this->load->model('CRUD_model');
+        if ($this->session->userdata('level') != "Pembeli") {
+            redirect('', 'refresh');
+        }
     }
     public function index(){
         if ($this->session->userdata('level')!='Pembeli') {
@@ -28,7 +31,8 @@ class Cart extends MY_Controller
                 'site'                  => $site,
                 'nama_kategori'         => 'Keranjang Belanja'
             );
-            $this->db->select('*')->from('temp_cart a');
+            $this->db->select('*');
+            $this->db->from('temp_cart a');
             $this->db->join('produk b', 'b.kode_produk = a.kode_produk','left');
             $this->db->where('pembeli',$this->session->userdata('username'));
             $cart = $this->db->get()->result_array();
@@ -68,8 +72,8 @@ class Cart extends MY_Controller
     }
     public function hapus($kode_produk){
         $where = array(
-        'kode_produk' => $kode_produk,
-        'pembeli' => $this->session->userdata('username'),
+            'kode_produk' => $kode_produk,
+            'pembeli' => $this->session->userdata('username'),
         );
         $data = $this->CRUD_model->Delete('temp_cart',$where);
         $this->session->set_flashdata('alert', '
@@ -101,6 +105,7 @@ class Cart extends MY_Controller
             $this->db->where('pembeli',$this->session->userdata('username'));
             $carts = $this->db->get()->result_array();
             foreach ($carts as $cart) {
+                $penjual = $cart['penjual'];
                 $data = array(
                     'jumlah' => $cart['jumlah'],
                     'kode_produk' => $cart['kode_produk'],
@@ -114,9 +119,20 @@ class Cart extends MY_Controller
                 'tanggal_beli' => date('Y-m-d H:i:s'),
                 'pembayaran' => $this->input->post('pembayaran'),
                 'status' => 0,
-                'kode_transaksi' => $kode_transaksi
+                'kode_transaksi' => $kode_transaksi,
+                'pembeli'   => $this->session->userdata('username'),
+                'penjual'   => $penjual
             );  
             $this->CRUD_model->Insert('transaksi', $data);
+            $where = array('pembeli' => $this->session->userdata('username'));
+            $this->CRUD_model->Delete('temp_cart',$where);
+            $this->session->set_flashdata('alert', '
+            <div class="alert alert-primary alert-dismissible" role="alert">
+            Pesanan telah dibuat, tunggu konfirmasi penjual. Atau hubungi penjual untuk mempercepat konfirmasi pesanan melalui WhatsApp.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+                ');
+            redirect('pembeli/order'); 
         }
     }
 }
