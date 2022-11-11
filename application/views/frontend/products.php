@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="icon" href="img/favicon.png" type="image/png" />
+    <link href='<?php echo base_url("assets/upload/logo.png"); ?>' rel='shortcut icon' type='image/png' />
     <title><?php echo $title; ?></title>
     <?php require_once('_css.php'); ?>
   </head>

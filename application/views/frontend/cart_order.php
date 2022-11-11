@@ -25,10 +25,15 @@
       </div>
     </section>
     <?php } else { ?>
+    <?php $sum=0; foreach ($transaksi as $trans) { ?>
     <section class="cart_area">
       <div class="container">
         <div class="cart_inner">
           <div class="table-responsive">
+            <h4>#<?php echo$trans['kode_transaksi']; ?></h4>
+            <h4><?php echo $this->CRUD_model->get_nama_user($trans['pembeli']); ?></h4>
+            <h4><?php echo date_format(date_create($trans['tanggal_beli']),'d F Y H:i'); ?></h4>
+            <h4>Pembayaran : <?php echo$trans['pembayaran']; ?></h4>
             <table class="table">
               <thead>
                 <tr>
@@ -36,7 +41,6 @@
                   <th scope="col">Price</th>
                   <th scope="col">Quantity</th>
                   <th scope="col"> Total</th>
-                  <th width="10%"></th>
                 </tr>
               </thead>
               <tbody>
@@ -59,11 +63,6 @@
                   <td>
                     <h5>Rp. <?php echo number_format($product['harga']*$product['jumlah'],0,",","."); ?></h5>
                   </td>
-                  <td>
-                    <a href="<?php echo site_url('cart/hapus/'.$product['kode_produk']) ?>"
-                    onClick="return confirm('Apakah anda yakin menghapus produk ini?')"
-                     class="genric-btn danger-border circle">Hapus</a>
-                  </td>
                 </tr>
                 <?php $sum=$sum+$product['harga']*$product['jumlah']; } ?>
                 <tr>
@@ -71,34 +70,14 @@
                   <td></td>
                   <td><h5>Subtotal</h5></td>
                   <td><h5>Rp. <?php echo number_format($sum,0,",","."); ?></h5></td>
-                  <td></td>
                 </tr>
-                <form method="post" action="<?php echo site_url('cart/checkout') ?>">
-                  <tr>
-                    <td colspan="3"></td>
-                    <td>
-                      Pembayaran
-                    </td>
-                    <td>
-                      <select name="pembayaran">
-                        <option value="Tunai">Tunai</option>
-                        <option value="Transfer">Transfer</option>
-                      </select>
-                    </td>
-                  </tr>
-                  <tr class="bottom_button">
-                    <td colspan="5" align="right">
-                      <button class="main_btn" type="submit">Lanjutkan belanja</button>
-                    </td>
-                  </tr>
-                </form>
               </tbody>
             </table>
           </div>
         </div>
       </div>
     </section>
-    <?php } ?>
+    <?php } } ?>
     <?php require_once('_footer.php'); ?>
     <?php require_once('_js.php'); ?>
   </body>

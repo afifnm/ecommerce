@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="icon" href="img/favicon.png" type="image/png" />
+    <link href='<?php echo base_url("assets/upload/logo.png"); ?>' rel='shortcut icon' type='image/png' />
     <title><?php echo $title; ?></title>
-    <?php require_once('../frontend/_css.php'); ?>
+    <?php require_once('_css.php'); ?>
     <style>
       .s_product_text p{
         margin: 0;
@@ -15,7 +15,7 @@
     </style>
   </head>
   <body>
-    <?php require_once('../frontend/_navigasi.php'); ?>
+    <?php require_once('_navigasi.php'); ?>
     <?php require_once('_header.php'); ?>
     <?php foreach ($products as $product) { ?>
           <!--================Single Product Area =================-->
@@ -58,13 +58,18 @@
                 </li>
               </ul>
                 <?php echo $product['deskripsi']; ?>
-              <div class="product_count">
-                <label for="qty">Jumlah:</label>
-                <input type="number" name="jumlah" min="1" maxlength="12" value="1" title="Quantity:" class="input-text qty"/>
-              </div>
-              <div class="card_area">
-                <a class="main_btn" href="#">Masukan Keranjang</a>
-              </div>
+              <form method="post" action="<?php echo site_url('cart/simpan');?>">
+                <div class="product_count">
+                  <label for="qty">Jumlah:</label>
+                  <input type="number" name="jumlah" min="1" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+                  <input type="hidden" name="kode_produk" value="<?php echo $product['kode_produk'] ?>">
+                  <input type="hidden" name="pembeli" value="<?php echo $this->session->userdata('username') ?>">
+                  <input type="hidden" name="penjual" value="<?php echo $username; ?>">
+                </div>
+                <div class="card_area"> 
+                  <button class="main_btn" type="submit" <?php if($product['stok']<1){ echo "disabled"; } ?>>Masukan Keranjang</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -73,8 +78,8 @@
     <!--================End Single Product Area =================-->
     <br>
     <?php } ?> 
-    <?php require_once('../frontend/_footer.php'); ?>
-    <?php require_once('../frontend/_js.php'); ?>
+    <?php require_once('_footer.php'); ?>
+    <?php require_once('_js.php'); ?>
     <script>
       var cari = document.getElementById('cari');
       cari.addEventListener("keydown", function(event) {

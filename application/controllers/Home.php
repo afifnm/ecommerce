@@ -11,6 +11,8 @@ class Home extends MY_Controller
         $this->load->helper('url');
         $this->load->library('pagination');
         $this->load->model('CRUD_model');
+        $userdata = array('affiliate' => 'root');
+        $this->session->set_userdata($userdata);
     }
 
     public function index($id=NULL){
@@ -131,7 +133,8 @@ class Home extends MY_Controller
         $data = array(
             'title'                 => $nama.' | '.$site['nama_website'],
             'site'                  => $site,
-            'nama_kategori'         => $nama
+            'nama_kategori'         => $nama,
+            'username'              => $this->session->userdata('affiliate')
         );
         $this->db->select('a.*,b.kategori')->from('produk a');
         $this->db->join('kategori b', 'b.id_kategori = a.id_kategori','left');
@@ -141,15 +144,4 @@ class Home extends MY_Controller
         $data2 = array('products' => $data2);
         $this->load->view('frontend/product',array_merge($data,$data2));
     } 
-    public function keranjang(){
-        if ($this->session->userdata('level')!='Konsumen') {
-            $this->session->set_flashdata('alert', '
-            <div class="alert alert-primary alert-dismissible" role="alert">
-            Silahkan login terlebih dahulu untuk menambah produk ke keranjang.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-                ');
-            redirect('auth/login');   
-        }
-    }
 }

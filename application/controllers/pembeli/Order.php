@@ -29,26 +29,6 @@ class Order extends MY_Controller{
         $data2 = array('data2' => $data2);
         $this->template->load('layout/template', 'pembeli/order_index', array_merge($data,$data2));
     }
-    public function detail($kode_transaksi){
-        $site = $this->Konfigurasi_model->listing();
-        $data = array(
-            'title'                 => 'Pesanan Saya | '.$site['nama_website'],
-            'site'                  => $site,
-            'nav'                   => '
-                <a class="navigasi-link" href="'.site_url('pembeli/order/').'">Pesanan Saya</a>
-                &nbsp; / &nbsp; <a class="navigasi-link">'.$kode_transaksi.'</a>
-            '
-        );
-        $this->db->select('*')->from('transaksi')->where('kode_transaksi',$kode_transaksi);
-        $transaksi = $this->db->get()->result_array();
-        $this->db->select('*')->from('cart')->where('kode_transaksi',$kode_transaksi);
-        $cart = $this->db->get()->result_array();
-        $data2 = array(
-            'transaksi' => $transaksi,
-            'cart'      => $cart
-        );
-        $this->template->load('layout/template', 'pembeli/order_detail', array_merge($data,$data2));
-    }
     public function cancel($kode_transaksi){
         $data = array('status' => 1); //1 Dibatalkan 
         $where = array('kode_transaksi' => $kode_transaksi);

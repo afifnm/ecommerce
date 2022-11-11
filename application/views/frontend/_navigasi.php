@@ -8,7 +8,7 @@ $kategori_produk = $this->db->get()->result_array();
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light w-100">
         <a class="navbar-brand logo_h" href="<?php echo site_url('home') ?>">
-            BisMart
+            <img src="<?php echo site_url('assets/upload/logo.png') ?>" height=50px>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
@@ -42,10 +42,10 @@ $kategori_produk = $this->db->get()->result_array();
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo site_url('home/contact') ?>">Contact</a>
+                    <a class="nav-link" href="<?php echo site_url('home/') ?>">Profil</a>
                 </li>
 				<li class="nav-item">
-                    <a class="nav-link" href="<?php echo site_url('home/cara-belanja') ?>">Cara Belanja</a>
+                    <a class="nav-link" href="<?php echo site_url('home/') ?>">Cara Belanja</a>
                 </li>
                 </ul>
             </div>

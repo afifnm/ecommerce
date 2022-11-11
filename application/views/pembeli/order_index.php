@@ -28,6 +28,10 @@
                   echo '<span class="btn btn-sm btn-secondary">Penjual sedang menyiapkan pesanan</span>';
                 } elseif($user['status']==1){ 
                   echo '<span class="btn btn-sm btn-danger">Pesanan Telah Dibatalkan</span>';
+                } elseif($user['status']==2){ 
+                  echo '<span class="btn btn-sm btn-primary">Penjual menerima pesananmu, hubungi WA penjual untuk melakukan pembayaran dan pengiriman.</span>';
+                } elseif($user['status']==3){ 
+                  echo '<span class="btn btn-sm btn-success">Pesanan telah diterima</span>';
                 } 
                 ?>
               </td>
@@ -39,12 +43,12 @@
                   Batalkan
                 </a>
                 <?php } ?>
-                <a href="<?php echo site_url('pembeli/order/detail/'.$user['kode_transaksi']);?>" class="btn btn-sm btn-warning">
+                <a href="<?php echo site_url('cart/order/'.$user['kode_transaksi']);?>" target="_blank" class="btn btn-sm btn-warning">
                   Lihat Pesanan
                 </a>  
-                <a href="<?php echo site_url('pembeli/order/detail/'.$user['kode_transaksi']);?>" class="btn btn-sm btn-success" target="_blank">
-                <i class="bx bxl-whatsapp"></i> WhatsApp
-                </a>      
+                <a href="https://api.whatsapp.com/send?phone=<?php echo $this->CRUD_model->get_wa($user['penjual']); ?>" class="btn btn-sm btn-success" target="_blank">
+                    <i class="bx bxl-whatsapp"></i> WhatsApp
+                </a>       
               </td>
             </tr>
             <?php $no++; } ?>

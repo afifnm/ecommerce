@@ -28,6 +28,34 @@ $kategori_produk = $this->db->get()->result_array();
         <div data-i18n="Analytics">Pengguna</div>
       </a>
     </li>
+    <li class="menu-item <?php echo open_menu('order'); ?> <?php echo activate_menu('order');  ?>">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-cart"></i>
+        <div data-i18n="Layouts">Daftar Pesanan</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item <?php if($this->uri->segment('4')=='0'){ echo "active"; } ?>">
+          <a href="<?php echo site_url('admin/order/status/0');?>" class="menu-link">
+            <div data-i18n="Without menu"> Pesanan Masuk</div>
+          </a>
+        </li>
+        <li class="menu-item <?php if($this->uri->segment('4')=='2'){ echo "active"; } ?>">
+          <a href="<?php echo site_url('admin/order/status/2');?>" class="menu-link">
+            <div data-i18n="Without menu"> Pesanan Dalam Perjalanan</div>
+          </a>
+        </li>
+        <li class="menu-item <?php if($this->uri->segment('4')=='3'){ echo "active"; } ?>">
+          <a href="<?php echo site_url('admin/order/status/3');?>" class="menu-link">
+            <div data-i18n="Without menu"> Pesanan Selesai</div>
+          </a>
+        </li>
+        <li class="menu-item <?php if($this->uri->segment('4')=='1'){ echo "active"; } ?>">
+          <a href="<?php echo site_url('admin/order/status/1');?>" class="menu-link">
+            <div data-i18n="Without menu"> Pesanan Dibatalkan</div>
+          </a>
+        </li>
+      </ul>
+    </li>
     <li class="menu-item <?php echo open_menu('produk'); ?> <?php echo activate_menu('produk');  ?>">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-store-alt"></i>
@@ -71,6 +99,34 @@ $kategori_produk = $this->db->get()->result_array();
           </a>
         </li>
         <?php }  ?>
+      </ul>
+    </li>
+    <li class="menu-item <?php echo open_menu('order'); ?> <?php echo activate_menu('order');  ?>">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-cart"></i>
+        <div data-i18n="Layouts">Daftar Pesanan</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item <?php if($this->uri->segment('4')=='0'){ echo "active"; } ?>">
+          <a href="<?php echo site_url('admin/order/status/0');?>" class="menu-link">
+            <div data-i18n="Without menu"> Pesanan Masuk</div>
+          </a>
+        </li>
+        <li class="menu-item <?php if($this->uri->segment('4')=='2'){ echo "active"; } ?>">
+          <a href="<?php echo site_url('admin/order/status/2');?>" class="menu-link">
+            <div data-i18n="Without menu"> Pesanan Dalam Perjalanan</div>
+          </a>
+        </li>
+        <li class="menu-item <?php if($this->uri->segment('4')=='3'){ echo "active"; } ?>">
+          <a href="<?php echo site_url('admin/order/status/3');?>" class="menu-link">
+            <div data-i18n="Without menu"> Pesanan Selesai</div>
+          </a>
+        </li>
+        <li class="menu-item <?php if($this->uri->segment('4')=='1'){ echo "active"; } ?>">
+          <a href="<?php echo site_url('admin/order/status/1');?>" class="menu-link">
+            <div data-i18n="Without menu"> Pesanan Dibatalkan</div>
+          </a>
+        </li>
       </ul>
     </li>
   </ul>

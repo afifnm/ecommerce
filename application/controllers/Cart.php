@@ -11,9 +11,6 @@ class Cart extends MY_Controller
         $this->load->helper('url');
         $this->load->library('pagination');
         $this->load->model('CRUD_model');
-        if ($this->session->userdata('level') != "Pembeli") {
-            redirect('', 'refresh');
-        }
     }
     public function index(){
         if ($this->session->userdata('level')!='Pembeli') {
@@ -39,6 +36,22 @@ class Cart extends MY_Controller
             $data2 = array('cart' => $cart);
             $this->load->view('frontend/cart',array_merge($data,$data2));
         }
+    }
+    public function order($kode_transaksi){
+        $site = $this->Konfigurasi_model->listing();
+        $data = array(
+            'title'                 => 'Transaksi Belanja | '.$site['nama_website'],
+            'site'                  => $site,
+            'nama_kategori'         => 'Transaksi Belanja'
+        );
+        $this->db->select('*')->from('cart a');
+        $this->db->join('produk b', 'b.kode_produk = a.kode_produk','left');
+        $this->db->where('kode_transaksi',$kode_transaksi);
+        $cart = $this->db->get()->result_array();
+        $this->db->select('*')->from('transaksi')->where('kode_transaksi',$kode_transaksi);
+        $transaksi = $this->db->get()->result_array();
+        $data2 = array('cart' => $cart,'transaksi' => $transaksi);
+        $this->load->view('frontend/cart_order',array_merge($data,$data2));
     }
     public function simpan(){
         if ($this->session->userdata('level')!='Pembeli') {
