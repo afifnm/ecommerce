@@ -30,6 +30,16 @@ class CRUD_model extends CI_Model{
         $this->db->where('id_kategori',$id);
         return $this->db->get()->row()->kategori;
     }
+    public function get_wa($id){
+        $this->db->select('no_hp')->from('user');
+        $this->db->where('username',$id);
+        return $this->db->get()->row()->no_hp;
+    }
+    public function get_stok($id){
+        $this->db->select('stok')->from('produk');
+        $this->db->where('kode_produk',$id);
+        return $this->db->get()->row()->stok;
+    }
     public function get_nama($id){
         $this->db->select('nama')->from('produk');
         $this->db->where('kode_produk',$id);

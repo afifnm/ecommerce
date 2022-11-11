@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="icon" href="img/favicon.png" type="image/png" />
+    <link href='<?php echo base_url("assets/upload/logo.png"); ?>' rel='shortcut icon' type='image/png' />
     <title><?php echo $title; ?></title>
     <?php require_once('_css.php'); ?>
   </head>
@@ -14,14 +14,6 @@
       <div class="container">
         <div class="row flex-row-reverse">
           <div class="col-lg-9">
-            <div class="product_top_bar" style="padding :0px;">
-              <div class="input-group-icon mt-10">
-								<div class="icon">
-									<i class="fa fa-search" aria-hidden="true"></i>
-								</div>
-								<input type="text" name="address" placeholder="Pencarian..." class="single-input" id="cari">
-							</div>
-            </div>
             <div class="latest_product_inner">
               <div class="row">
                 <?php foreach ($query as $produk) {?>
@@ -34,12 +26,12 @@
                         style="height: 170px;">
                         <?php } ?>
                         <div class="p_icon">
-                          <a href="<?php echo site_url('home/product/'.$produk->kode_produk) ?>">
+                          <a href="<?php echo site_url('affiliate/product/'.$produk->kode_produk) ?>" target="_blank">
                           <i class="ti-shopping-cart"></i></a>
                         </div>
                       </div>
                       <div class="product-btm">
-                        <a href="<?php echo site_url('home/product/'.$produk->kode_produk) ?>" class="d-block">
+                        <a href="<?php echo site_url('affiliate/product/'.$produk->kode_produk) ?>" class="d-block" target="_blank">
                           <h4><?php echo $produk->nama; ?></h4>
                         </a>
                         <div class="mt-3">

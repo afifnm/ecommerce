@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="icon" href="img/favicon.png" type="image/png" />
+    <link href='<?php echo base_url("assets/upload/logo.png"); ?>' rel='shortcut icon' type='image/png' />
     <title><?php echo $title; ?></title>
     <?php require_once('_css.php'); ?>
     <style>
@@ -67,7 +67,7 @@
                   <input type="number" name="jumlah" min="1" maxlength="12" value="1" title="Quantity:" class="input-text qty">
                   <input type="hidden" name="kode_produk" value="<?php echo $product['kode_produk'] ?>">
                   <input type="hidden" name="pembeli" value="<?php echo $this->session->userdata('username') ?>">
-                  <input type="hidden" name="penjual" value="Admin">
+                  <input type="hidden" name="penjual" value="<?php echo $username; ?>">
                 </div>
                 <div class="card_area"> 
                   <button class="main_btn" type="submit" <?php if($product['stok']<1){ echo "disabled"; } ?>>Masukan Keranjang</button>

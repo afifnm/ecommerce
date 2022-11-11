@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2022 at 09:55 AM
+-- Generation Time: Nov 11, 2022 at 08:02 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -39,7 +39,10 @@ CREATE TABLE `affiliasi` (
 
 INSERT INTO `affiliasi` (`id_affiliasi`, `kode_produk`, `username`) VALUES
 (4, '202210210359112', 'K3514003'),
-(5, '202210210356432', 'K3514003');
+(5, '202210210356432', 'K3514003'),
+(7, '202211020815142', '101'),
+(8, '202211020808112', '101'),
+(9, '202211020805362', '101');
 
 -- --------------------------------------------------------
 
@@ -64,7 +67,9 @@ INSERT INTO `cart` (`id_cart`, `kode_transaksi`, `kode_produk`, `jumlah`, `pembe
 (16, '2022111010183410', '202211020813452', 3, '201', 'Admin'),
 (17, '2022111010183410', '202211020808112', 14, '201', 'Admin'),
 (18, '2022111013215610', '202211020815142', 1, '201', 'Admin'),
-(19, '2022111013215610', '202211020808112', 1, '201', 'Admin');
+(19, '2022111013215610', '202211020808112', 1, '201', 'Admin'),
+(20, '2022111113550610', '202211020815142', 5, '201', '101'),
+(21, '2022111113550610', '202211020808112', 1, '201', '101');
 
 -- --------------------------------------------------------
 
@@ -177,10 +182,10 @@ CREATE TABLE `produk` (
 
 INSERT INTO `produk` (`id_produk`, `kode_produk`, `nama`, `deskripsi`, `id_kategori`, `active`, `tanggal`, `harga`, `stok`, `username`) VALUES
 (27, '202211020805362', 'ABC Sardines Chili', '', '6', 1, '2022-11-02 08:05:36', '7355', 50, 'root'),
-(28, '202211020808112', 'Agarasa Coklat', '', '6', 1, '2022-11-02 08:08:11', '4400', 50, 'root'),
+(28, '202211020808112', 'Agarasa Coklat', '', '6', 1, '2022-11-02 08:08:11', '4400', 49, 'root'),
 (29, '202211020809412', 'Agarasa Melon', '', '6', 1, '2022-11-02 08:09:41', '3500', 50, 'root'),
 (30, '202211020813452', 'Aqua 1500 Ml', '', '6', 1, '2022-11-02 08:13:45', '4600', 50, 'root'),
-(31, '202211020815142', 'Aqua 330 Ml', '', '6', 1, '2022-11-02 08:15:14', '1700', 50, 'root');
+(31, '202211020815142', 'Aqua 330 Ml', '', '6', 1, '2022-11-02 08:15:14', '1700', 49, 'root');
 
 -- --------------------------------------------------------
 
@@ -195,13 +200,6 @@ CREATE TABLE `temp_cart` (
   `pembeli` varchar(50) NOT NULL,
   `penjual` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `temp_cart`
---
-
-INSERT INTO `temp_cart` (`id_temp_cart`, `kode_produk`, `jumlah`, `pembeli`, `penjual`) VALUES
-(19, '202211020815142', 1, '201', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -225,8 +223,9 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `kode_transaksi`, `tanggal_beli`, `tanggal_selesai`, `pembayaran`, `status`, `pembeli`, `penjual`) VALUES
-(3, '2022111010183410', '2022-11-10 10:18:34', '0000-00-00 00:00:00', 'Tunai', 0, '201', 'Admin'),
-(4, '2022111013215610', '2022-11-10 13:21:56', '0000-00-00 00:00:00', 'Tunai', 1, '201', 'Admin');
+(3, '2022111010183410', '2022-11-10 10:18:34', '0000-00-00 00:00:00', 'Tunai', 0, '201', 'root'),
+(4, '2022111013215610', '2022-11-10 13:21:56', '0000-00-00 00:00:00', 'Tunai', 3, '201', 'root'),
+(5, '2022111113550610', '2022-11-11 13:55:06', '0000-00-00 00:00:00', 'Transfer', 0, '201', '101');
 
 -- --------------------------------------------------------
 
@@ -331,13 +330,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `affiliasi`
 --
 ALTER TABLE `affiliasi`
-  MODIFY `id_affiliasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_affiliasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `foto`
@@ -367,13 +366,13 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `temp_cart`
 --
 ALTER TABLE `temp_cart`
-  MODIFY `id_temp_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_temp_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`

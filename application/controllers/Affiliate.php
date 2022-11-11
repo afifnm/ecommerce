@@ -94,52 +94,14 @@ class Affiliate extends MY_Controller
         $data['query'] = $this->Affiliate_model->ambil_produk_kategori($username, $id_kategori,$config['per_page'], $id);
         $this->load->view('frontend/products_af',array_merge($data));
     }
-    public function pencarian($username,$keyword,$id=NULL){
-        $site = $this->Konfigurasi_model->listing();
-        $data = array(
-            'title'                 => 'Pencarian | '.$site['nama_website'],
-            'site'                  => $site,
-            'keyword'               => $keyword,
-            'username'              => $username,
-            'nama_kategori'         => 'Pencarian / '.$keyword
-        );
-        $this->db->select('*');
-        $this->db->where('active',1);
-        $this->db->like('nama',$keyword);
-        $this->db->order_by('tanggal', 'DESC');
-        $jml = $this->db->get('produk');
-        $data['jumlah'] = $jml->num_rows();
-        $config['base_url'] = base_url().'home/pencarian/'.$keyword;
-        $config['total_rows'] = $jml->num_rows();
-        $config['per_page'] = '12';
-        $config['first_link']       = 'First';
-        $config['last_link']        = 'Last';
-        $config['next_link']        = '<span class="ti-arrow-right"></span>';
-        $config['prev_link']        = '<span class="ti-arrow-left"></span>';
-        $config['num_tag_open']     = '<li class="page-item active page-link">';
-        $config['num_tag_close']    = '</li>';
-        $config['cur_tag_open']     = '<li class="page-item current page-link">';
-        $config['cur_tag_close']    = '</li>';
-        $config['next_tag_open']    = '<li class="page-item page-link">';
-        $config['next_tagl_close']  = '&raquo;</li>';
-        $config['prev_tag_open']    = '<li class="page-item page-link">';
-        $config['prev_tagl_close']  = '</li>Next';
-        $config['first_tag_open']   = '<li class="page-item page-link">';
-        $config['first_tagl_close'] = '</li>';
-        $config['last_tag_open']    = '<li class="page-item page-link">';
-        $config['last_tagl_close']  = '</li>';
-        $this->pagination->initialize($config);
-        $data['halaman'] = $this->pagination->create_links();
-        $data['query'] = $this->Affiliate_model->ambil_pencarian($username, $config['per_page'], $id,$keyword);
-        $this->load->view('fronted/products_af',array_merge($data));
-    }
     public function product($id){
         $nama = $this->CRUD_model->get_nama($id);
         $site = $this->Konfigurasi_model->listing();
         $data = array(
-            'title'                 => 'Pencarian | '.$site['nama_website'],
+            'title'                 => $nama.' | '.$site['nama_website'],
             'site'                  => $site,
-            'nama_kategori'         => $nama
+            'nama_kategori'         => $nama,
+            'username'              => $this->session->userdata('affiliate')
         );
         $this->db->select('a.*,b.kategori')->from('produk a');
         $this->db->join('kategori b', 'b.id_kategori = a.id_kategori','left');
